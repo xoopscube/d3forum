@@ -1,25 +1,19 @@
 <?php
 
+#@ gigamaster
 
+define('_MD_D3FORUM_THIS_TOPIC','# Ce Sujet');
 
+define('_MD_D3FORUM_HISTORIES','Historique');
+define('_MD_D3FORUM_LINK_TOPICHISTORIES','Reportez-vous à l\'historique du sujet');
+define('_MD_D3FORUM_FMT_POSTHITSINFO','%d visites');
+define('_MD_D3FORUM_FMT_POSTDISPLAYSINFO','%d affiché');
 
+define('_MD_D3FORUM_LINK_ALLRSS','RSS pour toutes les catégories');
+define('_MD_D3FORUM_LINK_CATEGORYRSS','RSS pour cette catégorie');
+define('_MD_D3FORUM_LINK_FORUMRSS','RSS pour ce forum');
 
-// Appended by Xoops Language Checker -GIJOE- in 2015-04-24 14:09:43
-define('_MD_D3FORUM_THIS_TOPIC','# THIS TOPIC');
-
-// Appended by Xoops Language Checker -GIJOE- in 2009-01-19 05:36:18
-define('_MD_D3FORUM_HISTORIES','Histories');
-define('_MD_D3FORUM_LINK_TOPICHISTORIES','Refer histries about this topic');
-define('_MD_D3FORUM_FMT_POSTHITSINFO','%d hits');
-define('_MD_D3FORUM_FMT_POSTDISPLAYSINFO','%d displayed');
-
-// Appended by Xoops Language Checker -GIJOE- in 2007-11-16 18:15:37
-define('_MD_D3FORUM_LINK_ALLRSS','RSS over all categories');
-define('_MD_D3FORUM_LINK_CATEGORYRSS','RSS of this category');
-define('_MD_D3FORUM_LINK_FORUMRSS','RSS of this forum');
-
-// Appended by Xoops Language Checker -GIJOE- in 2007-10-09 13:04:30
-define('_MD_D3FORUM_LINK_CATEGORYACCESS','Set permissions for this category');
+define('_MD_D3FORUM_LINK_CATEGORYACCESS','Définir les permissions pour cette catégorie');
 
 define('_MD_D3FORUM_ON','Date');
 define('_MD_D3FORUM_LASTMODIFIED','Dernière modification');
@@ -67,14 +61,14 @@ define('_MD_D3FORUM_LINK_LISTTOPICS','Afficher les Sujets du Forum');
 define('_MD_D3FORUM_LISTALLTOPICS','Afficher tous les Sujets');
 define('_MD_D3FORUM_LISTTOPICSINCATEGORY','Afficher les Sujets de la Catégorie');
 define('_MD_D3FORUM_LISTTOPICSINCATEGORIES','Afficher les Sujets dans les Catégories spécifiées');
-define('_MD_D3FORUM_FMT_TOPICHITS','hits %s sujets');
-define('_MD_D3FORUM_MSG_CONFIRMOK','Êtes vous sûr?');
-define('_MD_D3FORUM_MSG_CONFIRMDELETE','Êtes vous sûr de vouloir supprimer ceci?');
-define('_MD_D3FORUM_MSG_CONFIRMDELETERECURSIVE','Toutes les données attachées seront également éffacées. Êtes vous sûr de vouloir supprimer ceci?');
+define('_MD_D3FORUM_FMT_TOPICHITS','visites %s sujets');
+define('_MD_D3FORUM_MSG_CONFIRMOK','Confirmer ?');
+define('_MD_D3FORUM_MSG_CONFIRMDELETE','Confirmer la suppression ?');
+define('_MD_D3FORUM_MSG_CONFIRMDELETERECURSIVE','Toutes les données attachées seront également effacées. Confirmer la suppression ?');
 define('_MD_D3FORUM_POSTASNEWTOPIC','Créer un nouveau Sujet');
 define('_MD_D3FORUM_POSTASNEWTOPICTOTHISFORUM','Vous pouvez créer un nouveau Sujet dans ce Forum');
-define('_MD_D3FORUM_POSTASSAMETOPIC','Post into this topic');
-define('_MD_D3FORUM_REPLYTHISPOST','Reply to this post');
+define('_MD_D3FORUM_POSTASSAMETOPIC','Poster dans ce sujet');
+define('_MD_D3FORUM_REPLYTHISPOST','Répondre à ce post.');
 define('_MD_D3FORUM_CANTPOSTTHISFORUM','Vous ne pouvez pas poster dans ce Forum');
 define('_MD_D3FORUM_CANTCREATENEWTOPICTHISFORUM','Vous ne pouvez pas créer un nouveau Sujet dans ce Forum');
 define('_MD_D3FORUM_GUESTSCANPOST_DESC','Les utilisateurs invités peuvent poster dans ce Forum');
@@ -82,7 +76,7 @@ define('_MD_D3FORUM_GUESTSCANNOTPOST_DESC','Les utilisateurs invités ne peuvent
 define('_MD_D3FORUM_FORUMASCOMMENT','Forum comme les commentaires');
 define('_MD_D3FORUM_FORUMASCOMMENT_DESC','Ce Forum est réservé aux commentaires seulement, vous ne pouvez pas créer un nouveau Sujet');
 define('_MD_D3FORUM_ERR_FORUMASCOMMENT','Vous ne pouvez pas créer directement un nouveau Sujet dans ce Forum.');
-define('_MD_D3FORUM_ERR_INVALIDEXTERNALLINKID','You have commented to invalid target');
+define('_MD_D3FORUM_ERR_INVALIDEXTERNALLINKID','Vous avez commenté une cible non valide');
 define('_MD_D3FORUM_REPLIES','Réponses');
 define('_MD_D3FORUM_POSTER','Auteur');
 define('_MD_D3FORUM_VIEWS','Lectures');
@@ -104,13 +98,13 @@ define('_MD_D3FORUM_MARK_TURNOFF','Ne plus suivre ce Sujet');
 define('_MD_D3FORUM_SOLVED_TURNON','Activer Résolu');
 define('_MD_D3FORUM_SOLVED_TURNOFF','Désactiver Résolu');
 define('_MD_D3FORUM_A_TOPOFTHETOPIC','Premiers messages'); 
-define('_MD_D3FORUM_A_BOTTOMOFTHETOPIC','Dérniers messages'); 
+define('_MD_D3FORUM_A_BOTTOMOFTHETOPIC','Derniers messages');
 
 // comment integration
 define('_MD_D3FORUM_POSTASCOMMENTTOP','Poster un nouveau commentaire');
 define('_MD_D3FORUM_LINK_COMMENTSOURCE','cible de ce commentaire');
 define('_MD_D3FORUM_LINK_RICHERCOMMENTFORM','Afficher éditeur texte');
-define('_MD_D3FORUM_LINK_LISTALLCOMMENTS','Voir plus de commentaires...');
+define('_MD_D3FORUM_LINK_LISTALLCOMMENTS','Voir tous les commentaires...');
 define('_MD_D3FORUM_FMT_COMMENTSUBJECT','Re: %s');
 define('_MD_D3FORUM_COMMENTSLIST','Liste commentaires');
 define('_MD_D3FORUM_COM_TARGETMODULE','Cible');
@@ -133,9 +127,9 @@ define('_MD_D3FORUM_ERR_TOOMANYDIVEND','Trop de [/quote] ou </div>');
 
 // D3forumAntispam classes
 define('_MD_D3FORUM_ERR_TURNJAVASCRIPTON','Poster de nouveau après avoir activé JavaScript sur votre navigateur.');
-define('_MD_D3FORUM_LABEL_JAPANESEINPUTYOMI','');
-define('_MD_D3FORUM_ERR_JAPANESENOTINPUT','');
-define('_MD_D3FORUM_ERR_JAPANESEINCORRECT','');
+define('_MD_D3FORUM_LABEL_JAPANESEINPUTYOMI','Texte Japonais YOMI');
+define('_MD_D3FORUM_ERR_JAPANESENOTINPUT','Pas de texte Japonais');
+define('_MD_D3FORUM_ERR_JAPANESEINCORRECT','JAPONAIS INCORRECT');
 
 // inc_eachpost.html
 define('_MD_D3FORUM_UNIQUEPATHPREFIX','msg#');
@@ -172,9 +166,9 @@ define('_MD_D3FORUM_LABEL_SORTBY','Triés par');
 define('_MD_D3FORUM_LABEL_USERNAME','Nom d\'Utilisateur');
 define('_MD_D3FORUM_LEGEND_SEARCHIN','Rechercher dans');
 define('_MD_D3FORUM_LEGEND_WORDSMEANING','Signification du mot');
-define('_MD_D3FORUM_FMT_BYTE','(%d byte)');
+define('_MD_D3FORUM_FMT_BYTE','(%d octet)');
 define('_MD_D3FORUM_MSG_NOMATCH','Aucun résultat.');
-define('_MD_D3FORUM_FMT_SEARCHHITS','hits %s objet');
+define('_MD_D3FORUM_FMT_SEARCHHITS','recherche %s sujet');
 
 // module top (done)
 define('_MD_D3FORUM_TOTALTOPICSCOUNT','Total sujets');
@@ -183,7 +177,7 @@ define('_MD_D3FORUM_TIMENOW','Heure actuelle');
 define('_MD_D3FORUM_LASTVISIT','Votre dernière visite');
 
 // topic attributes (done)
-define('_MD_D3FORUM_TOPICLOCKED','Sujet verouillé topic');
+define('_MD_D3FORUM_TOPICLOCKED','Sujet verouillé');
 define('_MD_D3FORUM_TOPICLOCKED_DESC','Ce sujet est <em class="d3f_attn" title="Vous ne pouvez pas répondre ni éditer vos messages">VERROUILLE</em> par les admins ou modérateurs');
 define('_MD_D3FORUM_TOPICSTICKY','Sujet : Post-it');
 define('_MD_D3FORUM_TOPICPOPULAR','Sujet Populaire');
@@ -226,16 +220,16 @@ define('_MD_D3FORUM_EDITMODEC','Mode édition');
 define('_MD_D3FORUM_TH_UNAME','Utilisateur');
 define('_MD_D3FORUM_TH_GUESTNAME','Nom d\'Invité');
 define('_MD_D3FORUM_TH_GUESTEMAIL','email');
-define('_MD_D3FORUM_TH_GUESTURL','site url');
+define('_MD_D3FORUM_TH_GUESTURL','URL du site');
 define('_MD_D3FORUM_TH_GUESTPASSWORD','mot de passe');
 define('_MD_D3FORUM_TH_GUESTTRIP','visite');
 define('_MD_D3FORUM_FMT_UNAME','%s');
 define('_MD_D3FORUM_MESSAGEICON','Message icon');
-define('_MD_D3FORUM_TH_BODY','Corps');
+define('_MD_D3FORUM_TH_BODY','Message');
 define('_MD_D3FORUM_OPTIONS','Options');
 define('_MD_D3FORUM_ENABLESMILEY','Activer émoticones');
 define('_MD_D3FORUM_ENABLEHTML','Activer HTML');
-define('_MD_D3FORUM_ENABLEXCODE','Activer les éditeurs de XOOPS (BBCode/auto-link etc.)');
+define('_MD_D3FORUM_ENABLEXCODE','Activer les éditeurs de (BBCode/auto-link etc.)');
 define('_MD_D3FORUM_ENABLEBR','Activer le retour à la ligne automatique');
 define('_MD_D3FORUM_ENABLENUMBERENTITY','Activer les caractères en entier');
 define('_MD_D3FORUM_ENABLESPECIALENTITY','Activer les caractères spéciaux');
@@ -252,7 +246,7 @@ define('_MD_D3FORUM_NOTICE_YOUAREEDITING','Vous éditez votre message');
 define('_MD_D3FORUM_ERR_NOMESSAGE','Vous avez posté un message vide');
 
 // topicmanager (check done)
-define('_MD_D3FORUM_TOPICMANAGER','Gestionnaire de Sujets');
+define('_MD_D3FORUM_TOPICMANAGER','Gestion de Sujets');
 define('_MD_D3FORUM_TOPICMANAGER_DESC','Vous pouvez changer le titre du Sujet, verrouiller ou limiter l\'accès, etc.');
 define('_MD_D3FORUM_TOPICMANAGERDONE','Le Sujet a été modifié avec succès');
 define('_MD_D3FORUM_TH_STICKY','Attaché');
@@ -288,7 +282,7 @@ define('_MD_D3FORUM_CUTPASTEBYFORUMIDSBJ','Déplacer dans un autre Forum') ;
 define('_MD_D3FORUM_CUTPASTEBYFORUMIDDSC','Ce Sujet appartiendra au Forum spécifié. Cependant le topic_id sera gardé.') ;
 define('_MD_D3FORUM_CUTPASTETOPICDIVSBJ','Diviser le Sujet (messages)') ;
 define('_MD_D3FORUM_CUTPASTETOPICDIVDSC','Ce message sera un nouveau Sujet dans le Forum spécifié avec un nouveau topic_id') ;
-define('_MD_D3FORUM_CUTPASTESUCCESS','Ce messgae a été coupé et/ou collé avec succès') ;
+define('_MD_D3FORUM_CUTPASTESUCCESS','Ce message a été coupé et collé avec succès') ;
 
 // vote to post
 define('_MD_D3FORUM_ERR_VOTEPERM','Vou ne pouvez pas voter');
@@ -302,7 +296,7 @@ define('_MD_D3FORUM_VOTEPOINTDSCBEST','Utile');
 define('_MD_D3FORUM_VOTEPOINTDSCWORST','Inutile');
 
 // makeforum and forummanager
-define('_MD_D3FORUM_FORUMMANAGER','Gestionnaire de Forums');
+define('_MD_D3FORUM_FORUMMANAGER','Gestion de Forums');
 define('_MD_D3FORUM_LINK_MAKEFORUM','Créer un Forum');
 define('_MD_D3FORUM_LINK_FORUMMANAGER','Modifier le Forum');
 define('_MD_D3FORUM_LINK_FORUMACCESS','Permissions pour ce forum');
@@ -331,9 +325,8 @@ define('_MD_D3FORUM_TH_CATEGORYWEIGHT','Ordre de la Catégorie');
 define('_MD_D3FORUM_TH_CATEGORYPARENT','Catégorie Parent');
 define('_MD_D3FORUM_TH_CATEGORYDESC','Description de la Catégorie');
 define('_MD_D3FORUM_TH_CATEGORYOPTIONS','Options de la Catégorie');
-define('_MD_D3FORUM_TH_CATEGORYOPTIONS','Options Catégorie');
 define('_MD_D3FORUM_ONOFF','Oui/Non');
-define('_MD_D3FORUM_HOWTO_OVERRIDEOPTIONS','Si vous écrasez les préférences, ajoutez ceci:<br />(option name):(option value)<br />eg)<br />show_breadcrumbs:1 <br /><br />Options non prioritaires et valeurs courantes:');
+define('_MD_D3FORUM_HOWTO_OVERRIDEOPTIONS','Si vous écrasez les préférences, ajoutez ceci:<br>(option name):(option value)<br>eg)<br>show_breadcrumbs:1 <br><br>Options non prioritaires et valeurs courantes:');
 
 define('_MD_D3FORUM_SUFFIX_UNDERTHISCATEGORY','(sous cette catégorie)');
 define('_MD_D3FORUM_SUFFIX_UNDERTHISFORUM','(sous ce Forum)');
@@ -341,10 +334,8 @@ define('_MD_D3FORUM_SUFFIX_UNDERTHISFORUM','(sous ce Forum)');
 // batch actions
 define('_MD_D3FORUM_BATCH_ACTIONS','Actions par lots');
 define('_MD_D3FORUM_BA_TURNSOLVEDON','Changer tous les Sujets en Résolu');
-define('_MD_D3FORUM_BA_MSG_CONFIRM','Note: cette action affecte tous les Sujets/messages dans une catégoriey/forum');
+define('_MD_D3FORUM_BA_MSG_CONFIRM','Note: cette action affecte tous les Sujets et messages dans une catégorie/forum');
 
 // multi-byte spaces separated by ,
 // (don't define for single space languages)
 //define('_MD_D3FORUM_MULTIBYTESPACES',' ') ;
-
-?>

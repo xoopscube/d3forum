@@ -1,16 +1,28 @@
-<h3><{$mod_name}></h3>
+<div class="ui-dev-mode"><{$smarty.template}></div>
 
-<h2 class="head"><{$smarty.const._MD_A_D3FORUM_H2_POSTHISTORIES}></h2>
+<h2><{$mod_name}> / <{$smarty.const._MD_A_D3FORUM_H2_POSTHISTORIES}></h2>
 
-<form method="get" action="index.php">
-	<input type="hidden" name="page" value="post_histories" />
-	<input type="text" size="8" name="data" value="<{$requests.data|escape}>" />
-	topic_id:<input type="text" size="8" name="topic_id" value="<{$requests.topic_id|escape}>" />
-	post_id:<input type="text" size="8" name="post_id" value="<{$requests.post_id|escape}>" />
-	<input type="submit" value="<{$smarty.const._GO}>" />
-</form>
 
-<{$pagenavi}>
+<div layout="row center-justify" class="control-action">
+
+    <div>
+        <form method="get" action="index.php">
+            <input type="hidden" name="page" value="post_histories">
+            cat_id: <input type="text" size="8" name="data" value="<{$requests.data|escape}>">
+            topic_id: <input type="text" size="8" name="topic_id" value="<{$requests.topic_id|escape}>">
+            post_id: <input type="text" size="8" name="post_id" value="<{$requests.post_id|escape}>">
+            <input type="submit" value="<{$smarty.const._GO}>">
+        </form>
+    </div>
+
+    <div class="control-view">
+        <button class="help-admin ui-btn" type='button' data-id="4" data-module="<{$mydirname}>" data-help-article="#help-forum-history" title="Help Revision History">
+            <span class="ui-icon ui-icon-help"></span>
+        </button>
+    </div>
+
+</div>
+
 
 <table class="d3forum_post_histories outer">
 	<{foreach from=$histories item="history"}>
@@ -28,3 +40,5 @@
 		</tr>
 	<{/foreach}>
 </table>
+
+<{$pagenavi}>

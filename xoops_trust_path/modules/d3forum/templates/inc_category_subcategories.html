@@ -1,0 +1,41 @@
+<h3><{$smarty.const._MD_D3FORUM_SUBCATEGORIES}></h3>
+
+<{foreach item="subcategory" from=$category.subcategories}>
+
+<article layout="column" id="subcategory-<{$subcategory.id}>" class="subcategories">
+
+    <h4 layout="row center">
+        <a self="size-x1" href="<{$mod_url}>/index.php?cat_id=<{$subcategory.id}>" title="<{$subcategory.desc}>">
+            <img class="svg category_<{$subcategory.bit_new}>" src="<{$xoops_url}>/images/icons/category_<{$subcategory.bit_new}>.svg" alt="<{$subcategory.title}>">
+            <{$subcategory.title}>
+        </a>
+        <{if $xoops_isadmin}>
+        <a self="right" href="<{$mod_url}>/index.php?page=categorymanager&amp;cat_id=<{$subcategory.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYMANAGER}>">
+            <img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg">
+        </a>
+        <{/if}>
+    </h4>
+
+    <{if $subcategory.desc}>
+    <div layout="row stretch p-4" class="subcategory-desc">
+        <{$subcategory.desc}>
+    </div>
+    <{/if}>
+
+    <{* ------- Activity Overview - Subcategories *}>
+    <footer layout="row center-justify p-2 my-4" class="activity">
+        <div self="inline">
+        <div><{$smarty.const._MD_D3FORUM_TOTALTOPICSCOUNT}> <span class="badge"><{$subcategory.topics_count_in_tree}></span></div>
+        <div><{$smarty.const._MD_D3FORUM_TOTALPOSTSCOUNT}> <span class="badge"><{$subcategory.posts_count_in_tree}></span></div>
+        </div>
+
+        <{* RSS margin-right = negative 4x 0.25rem (mr-n4) *}>
+        <a self="" href="<{$mod_url}>/index.php?page=rss&amp;cat_ids=<{$subcategory.id}>&amp;odr=1" title="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYRSS}>">
+            <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg">
+        </a>
+    </footer>
+    <{* ------- /Activity Overview - Subcategories *}>
+
+</article>
+
+<{/foreach}>

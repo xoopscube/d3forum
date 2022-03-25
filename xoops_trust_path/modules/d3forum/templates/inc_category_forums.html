@@ -1,0 +1,41 @@
+<h3><{$smarty.const._MD_D3FORUM_FORUM}></h3>
+
+<article layout="column mb-4" class="category-forums">
+
+    <{foreach item=forum from=$category.forums}>
+
+    <h4 layout="row center-center">
+        <a self="size-x1" href="<{$mod_url}>/index.php?forum_id=<{$forum.id}>">
+            <img class="svg forum_<{$forum.bit_new}>" src="<{$xoops_url}>/images/icons/forum_<{$forum.bit_new}>.svg" alt="<{$forum.title}>">
+            <{$forum.title}>
+        </a>
+        <{if $xoops_isadmin}>
+        <a self="right" href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_FORUMMANAGER}>">
+            <img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg"></a>
+        <{/if}>
+    </h4>
+
+    <div layout="row stretch p-4" class="forum-description">
+        <{$forum.desc}>
+    </div>
+
+    <{* ------- Activity Overview - Forums *}>
+    <footer layout="row center-justify p-2 my-4" class="activity">
+        <div self="inline">
+        <div><{$smarty.const._MD_D3FORUM_TOPICSCOUNT}> <span class="badge"><{$forum.topics_count}></span></div>
+        <div><{$smarty.const._MD_D3FORUM_POSTSCOUNT}> <span class="badge"><{$forum.posts_count}></span></div>
+        <{if $forum.last_post_time}>
+        <div><{$smarty.const._MD_D3FORUM_LASTPOST}> <span class="badge"><{$forum.last_post_time_formatted}></span></div>
+        <{/if}>
+        </div>
+
+        <{* RSS margin-right = negative 4x 0.25rem (mr-n4) *}>
+        <a self="" href="<{$mod_url}>/index.php?page=rss&amp;forum_id=<{$forum.id}>">
+            <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg" title="<{$smarty.const._MD_D3FORUM_LINK_FORUMRSS}>">
+        </a>
+    </footer>
+    <{* ------- /Activity Overview - Forums *}>
+
+    <{/foreach}>
+
+</article>

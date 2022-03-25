@@ -1,10 +1,9 @@
 <?php
 
-
-
+#@ gigamaster
 
 define('_MD_A_MYMENU_MYTPLSADMIN','Templates');
-define('_MD_A_MYMENU_MYBLOCKSADMIN','Blocks/Permissions');
+define('_MD_A_MYMENU_MYBLOCKSADMIN','Blocks Permissions');
 define('_MD_A_MYMENU_MYPREFERENCES','Préférences');
 
 // forum_access and category_access
@@ -45,10 +44,8 @@ define('_MD_A_D3FORUM_MSG_COMIMPORTDONE','Les commentaires de modules XOOPS sont
 define('_MD_A_D3FORUM_ERR_INVALIDMID','Vous avez spécifié un module à importer invalide');
 define('_MD_A_D3FORUM_ERR_SQLONIMPORT','Echec lors de l\'importation. Vous devez vérifier les versions de chaque module');
 define('_MD_A_D3FORUM_HELP_IMPORTFROM','Vous pouvez importer de newbb1, xhnewbb, et autres versions de d3forum.  Et vous devez savoir que ce n\'est pas une copie parfaite. Vous devriez vérifier, en particulier, les permissions. Vous devez également savoir que toutes les données dans ce module seront perdues lorsque vous exécutez l\'importation.');
-define('_MD_A_D3FORUM_HELP_COMIMPORTFROM','Les commentaires de XOOPS seront importés comme des contributions de d3forum. En outre vous devez permettre au dispositif d\'intégration-commenteraires de les employer (en éditant les templates ou modifiant les préférences etc...)');
+define('_MD_A_D3FORUM_HELP_COMIMPORTFROM','Les commentaires de XOOPS seront importés comme des contributions de d3forum. En outre vous devez permettre au dispositif d\'intégration-commentaires de les employer, en modifiant les modéles (templates) et les préférences etc...)');
 
 // post_histories
 define('_MD_A_D3FORUM_H2_POSTHISTORIES','Historique de l\'édition/suppression de messages');
 define('_MD_A_D3FORUM_LINK_REFERDELETED','Supprimé');
-
-?>
