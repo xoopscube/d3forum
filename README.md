@@ -15,7 +15,7 @@ Description  | Duplicatable discussion forum management
 Render Engine| Smarty v2 and XCube Layout
 Version      | 2.30
 Credits      | @domifara, @naao Naoki Okino, @nao-pon Naoki Sawada, @gigamaster (XCL7)
-Author       | Gijoe (peak.ne.jp) and Jidaikbo) 
+Author       | Gijoe (peak.ne.jp) and Jidaikbo 
 Copyright    | 2005-2022 Authors
 License      | XCL module distributed under a GPL 2.0 License.
 
