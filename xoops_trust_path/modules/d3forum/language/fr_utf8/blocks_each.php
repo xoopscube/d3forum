@@ -1,5 +1,4 @@
 <?php
-
 #@ gigamaster
 
 if( defined( 'FOR_XOOPS_LANG_CHECKER' ) ) $mydirname = 'd3forum' ;

@@ -1,10 +1,8 @@
 <?php
+
 if( defined( 'FOR_XOOPS_LANG_CHECKER' ) ) $mydirname = 'd3forum';
 $constpref = '_MI_' . strtoupper( $mydirname );
 if( defined( 'FOR_XOOPS_LANG_CHECKER' ) || ! defined( $constpref.'_LOADED' ) ) {
-
-
-
 
 // Appended by Xoops Language Checker -GIJOE- in 2015-04-24 14:09:40
 define($constpref.'_USENAME','display name');
@@ -132,4 +130,3 @@ define($constpref.'_NOTIFY_GLOBAL_WAITING', 'Requerendo aprovação');
 define($constpref.'_NOTIFY_GLOBAL_WAITINGCAP', 'Notificar-me de novas mensagens que requerem a aprovação. Somente para administrador.'); //
 define($constpref.'_NOTIFY_GLOBAL_WAITINGSBJ', '[{X_SITENAME}] {X_MODULE}: Requerendo aprovação');
 }
-?>
