@@ -141,5 +141,3 @@ define($constpref.'_NOTIFY_GLOBAL_WAITINGCAP', '承認を要する投稿・編�
 define($constpref.'_NOTIFY_GLOBAL_WAITINGSBJ', '[{X_SITENAME}] {X_MODULE}: 承認待ち {POST_TITLE}');
 
 }
-
-?>
