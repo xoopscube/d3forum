@@ -31,12 +31,14 @@
     </article>
 
 
-    <h3>
-        <img class="svg tools" src="<{$xoops_url}>/images/icons/tools.svg"> <{$smarty.const._MD_D3FORUM_CUTPASTEBYPOSTIDSBJ}></h3>
+<hr>
+
+
+<h3><img class="svg tools" src="<{$xoops_url}>/images/icons/tools.svg"> <{$smarty.const._MD_D3FORUM_CUTPASTEBYPOSTIDSBJ}></h3>
 
 
 <form name="cutpastebypostid" id="cutpastebypostid" action="<{$mod_url}>/index.php?page=cutpasteposts&amp;post_id=<{$post_id}>" method="post">
-	<p class="msg-callout msg-info"><{$smarty.const._MD_D3FORUM_CUTPASTEBYPOSTIDDSC}></p>
+	<div class="tips"><{$smarty.const._MD_D3FORUM_CUTPASTEBYPOSTIDDSC}></div>
     <div self="size-x1">
         <label for="pid"><{$smarty.const._MD_D3FORUM_CUTPASTEBYPOSTID_DEST}></label>
 	    <input type="text" name="pid" id="pid" size="12" maxlength="12" value="">
@@ -45,23 +47,21 @@
 </form>
 
 
+<hr>
+
+
 <{if $post.pid}>
-	<h3>
-        <img class="svg tools" src="<{$xoops_url}>/images/icons/tools.svg"> <{$smarty.const._MD_D3FORUM_CUTPASTETOPICDIVSBJ}></h3>
-	<p class="msg-callout msg-info"><{$smarty.const._MD_D3FORUM_CUTPASTETOPICDIVDSC}></p>
+	<h3><img class="svg tools" src="<{$xoops_url}>/images/icons/tools.svg"> <{$smarty.const._MD_D3FORUM_CUTPASTETOPICDIVSBJ}></h3>
+	<div class="tips"><{$smarty.const._MD_D3FORUM_CUTPASTETOPICDIVDSC}></div>
 <{else}>
-	<h3>
-        <img class="svg tools" src="<{$xoops_url}>/images/icons/tools.svg"> <{$smarty.const._MD_D3FORUM_CUTPASTEBYFORUMIDSBJ}></h3>
-	<p class="msg-callout msg-info"><{$smarty.const._MD_D3FORUM_CUTPASTEBYFORUMIDDSC}></p>
+	<h3><img class="svg tools" src="<{$xoops_url}>/images/icons/tools.svg"> <{$smarty.const._MD_D3FORUM_CUTPASTEBYFORUMIDSBJ}></h3>
+	<div class="tips"><{$smarty.const._MD_D3FORUM_CUTPASTEBYFORUMIDDSC}></div>
 <{/if}>
 
-
 <form name="cutpastebyforumid" id="cutpastebyforumid" action="<{$mod_url}>/index.php?page=cutpasteposts&amp;post_id=<{$post_id}>" method="post">
-	<div layout="column">
-        <label for="forum_id" self="size-x1"><{$smarty.const._MD_D3FORUM_CUTPASTEBYFORUMID_DEST}></label>
-        <div self="size-x1">
-	        <select name="forum_id" id="forum_id"><{$forum_jumpbox_options}></select>
-            <button type="submit" class="ui-button" name="cutpastepostsok" id="cutpastepostsok" value="<{$smarty.const._SUBMIT}>"><{$smarty.const._SUBMIT}></button>
-        </div>
+	<div layout="row center-left" self="size-x1">
+        <label for="forum_id"><{$smarty.const._MD_D3FORUM_CUTPASTEBYFORUMID_DEST}></label>
+        <select name="forum_id" id="forum_id"><{$forum_jumpbox_options}></select>
+        <button type="submit" class="button" name="cutpastepostsok" id="cutpastepostsok" value="<{$smarty.const._SUBMIT}>"><{$smarty.const._SUBMIT}></button>
     </div>
 </form>

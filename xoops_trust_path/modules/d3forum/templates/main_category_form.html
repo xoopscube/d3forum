@@ -12,41 +12,42 @@
 <{/if}>
 
 
-<!--<h2><{$smarty.const._MD_D3FORUM_CATEGORYMANAGER}></h2>-->
+<h2><{$smarty.const._MD_D3FORUM_CATEGORYMANAGER}></h2>
 
 <form name="categoryform" id="categoryform" action="<{$mod_url}>/index.php?page=<{$page}>&amp;cat_id=<{$category.id}>" method="post" onsubmit="return xoopsFormValidate_categoryform();">
 
     <{$gticket_hidden}>
 
-    <section layout="column">
+    <section layout="column" class="framed">
 
         <!-- Permissions -->
         <{if $xoops_isadmin}>
-        <div layout="row center-justify">
-            <h3 class="d3f_head"><{$formtitle}></h3><p><a class="ui-button" href="<{$mod_url}>/admin/index.php?page=category_access&amp;cat_id=<{$category.id}>">
-            <img class="svg lock" src="<{$xoops_url}>/images/icons/lock.svg"> <{$smarty.const._MD_D3FORUM_LINK_CATEGORYACCESS}></a></p>
+        <div layout="row center-justify mb-6">
+            <h3><{$formtitle}></h3>
+            <div><a class="ui-button" href="<{$mod_url}>/admin/index.php?page=category_access&amp;cat_id=<{$category.id}>">
+            <img class="svg lock" src="<{$xoops_url}>/images/icons/lock.svg" alt="admin"> <{$smarty.const._MD_D3FORUM_LINK_CATEGORYACCESS}></a></div>
         </div>
         <{/if}>
 
-        <div layout="row center-left sm-column">
+        <div layout="row center-left sm-column mb-6">
             <div self="size-xxsmall sm-full">
                 <label for="category_title"><{$smarty.const._MD_D3FORUM_TH_CATEGORYTITLE}></label>
             </div>
             <div self="sm-full">
-				<input type="text" name="title" id="category_title" size="50" maxlength="191" value="<{$category.title}>">
+				<input type="text" name="title" id="category_title" size="42" maxlength="191" value="<{$category.title}>">
             </div>
         </div>
 
-        <div layout="row center-left sm-column">
+        <div layout="row center-left sm-column mb-6">
             <div self="size-xxsmall sm-full">
                 <label for="category_desc"><{$smarty.const._MD_D3FORUM_TH_CATEGORYDESC}></label>
             </div>
             <div self="sm-full">
-				<textarea name="desc" id="category_desc" cols="50" rows="10"><{$category.desc}></textarea>
+				<textarea name="desc" id="category_desc" cols="50" rows="5"><{$category.desc}></textarea>
             </div>
         </div>
 
-        <div layout="row center-left sm-column">
+        <div layout="row center-left sm-column mb-6">
             <div self="size-xxsmall sm-full">
                 <label for="category_pid"><{$smarty.const._MD_D3FORUM_TH_CATEGORYPARENT}></label>
             </div>
@@ -58,7 +59,7 @@
             </div>
         </div>
 
-        <div layout="row center-left sm-column">
+        <div layout="row center-left sm-column mb-6">
             <div self="size-xxsmall sm-full">
                 <label for="category_weight"><{$smarty.const._MD_D3FORUM_TH_CATEGORYWEIGHT}></label>
             </div>
@@ -67,7 +68,7 @@
             </div>
         </div>
 
-        <div layout="row center-left">
+        <div layout="row center-left mb-6">
             <div self="size-xxsmall sm-full">
                 <{$smarty.const._MD_D3FORUM_CHILDREN_COUNT}>
             </div>
@@ -76,24 +77,29 @@
             </div>
         </div>
 
-        <div layout="row center-left">
+        <div layout="row center-left mb-6">
             <div self="size-xxsmall sm-full">
                 <{$smarty.const._MD_D3FORUM_BATCH_ACTIONS}>
             </div>
             <div self="sm-full">
+                <label for="batch_action_turnsolvedon">
                 <input type="checkbox" name="batch_action_turnsolvedon" id="batch_action_turnsolvedon" value="1" onclick="if(this.checked){alert('<{$smarty.const._MD_D3FORUM_BA_MSG_CONFIRM}>');}">
-                <label for="batch_action_turnsolvedon"><{$smarty.const._MD_D3FORUM_BA_TURNSOLVEDON}></label>
+                <{$smarty.const._MD_D3FORUM_BA_TURNSOLVEDON}></label>
             </div>
         </div>
 
-        <{* CATEGORY OPTIONS *}>
-        <div layout="row center-left">
+        <{* ----- CATEGORY OPTIONS *}>
+        <div layout="row center-left mb-6">
             <div self="size-xxsmall sm-full">
 				<{$smarty.const._MD_D3FORUM_TH_CATEGORYOPTIONS}>
             </div>
             <div self="sm-full">
-				<input type="checkbox" id="category_option_controller_onoff" onclick="if(this.checked){xoopsGetElementById('category_option_controller').style.display='block';}else{xoopsGetElementById('category_option_controller').style.display='none';};"  <{if $category.options}>checked="checked"<{/if}>>
-                <label for="category_option_controller_onoff"><{$smarty.const._MD_D3FORUM_ONOFF}></label>
+                <label for="category_option_controller_onoff">
+                    <input type="checkbox" id="category_option_controller_onoff"
+                       onclick="if(this.checked){xoopsGetElementById('category_option_controller').style.display='block';}else{xoopsGetElementById('category_option_controller').style.display='none';};"
+                       <{if $category.options}>checked="checked"<{/if}>>
+                    <{$smarty.const._MD_D3FORUM_ONOFF}>
+                </label>
 				<div id="category_option_controller" <{if ! $category.options}>style="display:none;"<{/if}> name="options">
 					<textarea name="options" id="category_options" cols="50" rows="10"><{$category.options}></textarea>
 					<br>
@@ -103,18 +109,18 @@
 				</div>
             </div>
         </div>
-        <{* /CATEGORY OPTIONS *}>
+        <{* ----- /CATEGORY OPTIONS *}>
+
 
         <div layout="row center-left">
             <div self="size-xxsmall sm-full">
-            <!-- submit or delete -->
             </div>
-            <div self="sm-full">
+            <div self="sm-full inline">
                 <{if $page == 'categorymanager' && $children_count == 0}>
-                <button type="submit" class="ui-button delete" name="categoryman_delete" value="<{$smarty.const._DELETE}>" onclick="return confirm('<{$smarty.const._MD_D3FORUM_MSG_CONFIRMDELETERECURSIVE}>')">
+                <button type="submit" class="button delete" name="categoryman_delete" value="<{$smarty.const._DELETE}>" onclick="return confirm('<{$smarty.const._MD_D3FORUM_MSG_CONFIRMDELETERECURSIVE}>')">
                     <img class="svg delete" src="<{$xoops_url}>/images/icons/delete.svg" alt=""> <{$smarty.const._DELETE}></button>
                 <{/if}>
-                <button type="submit" class="ui-button" name="categoryman_post" value="<{$smarty.const._SUBMIT}>">
+                <button type="submit" class="button" name="categoryman_post" value="<{$smarty.const._SUBMIT}>">
                     <img class="svg check" src="<{$xoops_url}>/images/icons/check.svg"> <{$smarty.const._SUBMIT}>
                 </button>
             </div>

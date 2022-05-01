@@ -4,7 +4,8 @@
 <h2><{$mod_name}> / <{$smarty.const._MD_D3FORUM_FORUM}> / <{$forum_title}></h2>
 
 
-<div layout="row center-justify" class="control-action">
+<{* ////— ACTION-CONTROL —\\\\ *}>
+<section layout="row center-justify" class="action-control">
 
     <div>
         <form name="selectforum" action="<{$mod_url}>/admin/index.php" method="get">
@@ -16,14 +17,14 @@
     </div>
 
     <div class="control-view">
-        <a class="ui-btn ui-btn-small" href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum_id}>"><{$smarty.const._EDIT}></a>
+        <a class="button" href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum_id}>"><{$smarty.const._EDIT}></a>
 
-        <button class="help-admin ui-btn" type='button' data-id="4" data-module="<{$mydirname}>" data-help-article="#help-forum-start" title="Get Started">
-            <span class="ui-icon ui-icon-help"></span>
+        <button class="help-admin button" type='button' data-id="4" data-module="<{$mydirname}>" data-help-article="#help-forum-start" title="<{$smarty.const._HELP}>">
+            <b>?</b>
         </button>
     </div>
 
-</div>
+</section>
 
 
 

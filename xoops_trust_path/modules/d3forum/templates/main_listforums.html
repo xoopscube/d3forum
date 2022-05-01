@@ -51,13 +51,13 @@
             <{if $xoops_isadmin}>
             <div layout="left">
                 <{* ----- CATEGORY MANAGER *}>
-                <a class="ui-button" href="<{$mod_url}>/index.php?page=categorymanager&amp;cat_id=<{$category.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYMANAGER}>">
+                <a class="button" href="<{$mod_url}>/index.php?page=categorymanager&amp;cat_id=<{$category.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYMANAGER}>">
                     <img class="svg edit-box" src="<{$xoops_url}>/images/icons/edit-box.svg"></a>
                 <{* ----- CATEGORY ACCESS *}>
-                <a class="ui-button" href="<{$mod_url}>/admin/index.php?page=category_access&amp;cat_id=<{$category.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYACCESS}>">
+                <a class="button" href="<{$mod_url}>/admin/index.php?page=category_access&amp;cat_id=<{$category.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYACCESS}>">
                     <img class="svg lock" src="<{$xoops_url}>/images/icons/lock.svg"></a>
                 <{* ----- CATEGORY CREATE *}>
-                <a class="ui-button" href="<{$mod_url}>/index.php?page=makecategory&amp;cat_id=<{$category.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_MAKESUBCATEGORY}> <{$smarty.const._MD_D3FORUM_SUFFIX_UNDERTHISCATEGORY}>">
+                <a class="button" href="<{$mod_url}>/index.php?page=makecategory&amp;cat_id=<{$category.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_MAKESUBCATEGORY}> <{$smarty.const._MD_D3FORUM_SUFFIX_UNDERTHISCATEGORY}>">
                     <img class="svg folder-plus" src="<{$xoops_url}>/images/icons/folder-plus.svg"></a>
             </div>
             <{/if}>
@@ -65,13 +65,13 @@
             <div self="right inline sm-full">
 
                 <{if $category.isadminormod}>
-                <a class="ui-button" href="<{$mod_url}>/index.php?page=makeforum&amp;cat_id=<{$category.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_MAKEFORUM}> <{$smarty.const._MD_D3FORUM_SUFFIX_UNDERTHISCATEGORY}>">
+                <a class="button" href="<{$mod_url}>/index.php?page=makeforum&amp;cat_id=<{$category.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_MAKEFORUM}> <{$smarty.const._MD_D3FORUM_SUFFIX_UNDERTHISCATEGORY}>">
                     <img class="svg forum-plus" src="<{$xoops_url}>/images/icons/topic_plus.svg"> <{$smarty.const._MD_D3FORUM_LINK_MAKEFORUM}></a>
                 <{/if}>
 
                 <{* ----- List All Topics *}>
 
-                <a class="ui-button" href="<{$mod_url}>/index.php?cat_ids=<{$category.id}>">
+                <a class="button" href="<{$mod_url}>/index.php?cat_ids=<{$category.id}>">
                     <img class="svg list-tree" src="<{$xoops_url}>/images/icons/list-tree.svg"> <{$smarty.const._MD_D3FORUM_LISTTOPICSINCATEGORY}></a>
 
             </div>
@@ -208,7 +208,7 @@
                     <div self="left"> [<{$smarty.const._MD_D3FORUM_FORUMASCOMMENT}>] </div>
                     <{elseif $forum.can_post}>
                     <div self="right">
-                        <a class="ui-button" href="<{$mod_url}>/index.php?page=newtopic&amp;forum_id=<{$forum.id}>">
+                        <a class="button" href="<{$mod_url}>/index.php?page=newtopic&amp;forum_id=<{$forum.id}>">
                             <{$smarty.const._MD_D3FORUM_POSTASNEWTOPIC}></a>
                     </div>
                 <{/if}>
@@ -260,8 +260,8 @@
             <option value="">(<{$smarty.const._MD_D3FORUM_TOP}>)</option>
             <{$cat_jumpbox_options}>
         </select>
-        <button type="submit" class="ui-button" value="<{$smarty.const._MD_D3FORUM_BTN_JUMPTOCATEGORY}>"><{$smarty.const._MD_D3FORUM_BTN_JUMPTOCATEGORY}></button>
-        <a class="ui-button" href="<{$mod_url}>/index.php?page=search">
+        <button type="submit" class="button" value="<{$smarty.const._MD_D3FORUM_BTN_JUMPTOCATEGORY}>"><{$smarty.const._MD_D3FORUM_BTN_JUMPTOCATEGORY}></button>
+        <a class="button" href="<{$mod_url}>/index.php?page=search">
             <img class="svg search" src="<{$xoops_url}>/images/icons/search.svg"> <{$smarty.const._MD_D3FORUM_LINK_ADVSEARCH}></a>
     </form>
 </section>

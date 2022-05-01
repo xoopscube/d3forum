@@ -61,19 +61,19 @@
 </table>
 
 <div self="right mx-2">
-<a class="ui-button" href="<{$block.mod_url}>/index.php?page=search"><{$block.lang_linktosearch}></a>
+<a class="button" href="<{$block.mod_url}>/index.php?page=search"><{$block.lang_linktosearch}></a>
 &nbsp;
 <{if is_numeric( $block.forums ) }>
-<a class="ui-button" href="<{$block.mod_url}>/index.php?forum_id=<{$block.forums}>"><{$block.lang_linktolisttopics}></a>
+<a class="button" href="<{$block.mod_url}>/index.php?forum_id=<{$block.forums}>"><{$block.lang_linktolisttopics}></a>
 <{else}>
-<a class="ui-button" href="<{$block.mod_url}>/index.php?cat_ids=<{$block.categories}>"><{$block.lang_linktolisttopics}></a>
+<a class="button" href="<{$block.mod_url}>/index.php?cat_ids=<{$block.categories}>"><{$block.lang_linktolisttopics}></a>
 <{/if}>
 &nbsp;
 <{if is_numeric( $block.categories ) }>
-<a class="ui-button" href="<{$block.mod_url}>/index.php?cat_id=<{$block.categories}>"><{$block.lang_linktolistforums}></a>
+<a class="button" href="<{$block.mod_url}>/index.php?cat_id=<{$block.categories}>"><{$block.lang_linktolistforums}></a>
 &nbsp;
 <{/if}>
-<a class="ui-button" href="<{$block.mod_url}>/index.php"><{$block.lang_linktolistcategories}></a>
+<a class="button" href="<{$block.mod_url}>/index.php"><{$block.lang_linktolistcategories}></a>
 </div>
 
 

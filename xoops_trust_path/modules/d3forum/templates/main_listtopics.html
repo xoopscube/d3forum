@@ -18,7 +18,7 @@
 
 <{* ------- Forum Top *}>
 
-<section layout="column my-4" class="category-top">
+<article layout="column mb-7" class="category-top">
 
     <div layout="rows center-justify mb-4">
 
@@ -44,7 +44,7 @@
 
         <{* ------- Admin Action controller *}>
 
-        <article layout="row center-justify sm-column" id="controller">
+        <section layout="row center-justify sm-column" id="controller">
 
             <{if $forum.isadminormod}>
             <div self="size-2of3 center-left sm-full" role="group" aria-label="Admin Category">
@@ -84,11 +84,11 @@
                 <{/if}>
             <{/if}>
 
-        </article>
+        </section>
 
         <{* ------- /Admin Action controller *}>
 
-</section>
+</article>
 
 <{* ------- /Forum Top *}>
 
@@ -214,7 +214,7 @@
             </div>
 
             <{* ------- Activity Overview - Forums *}>
-            <footer layout="row center-justify p-2 mt-4" class="activity">
+            <footer layout="row center p-2 mt-4" class="activity">
 
                 <div self="px-2" abbr="<{$smarty.const._MD_D3FORUM_TOPIC}>">
                     <{$topic_hits|string_format:$smarty.const._MD_D3FORUM_FMT_TOPICHITS}>

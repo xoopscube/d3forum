@@ -3,7 +3,8 @@
 <h2><{$mod_name}> / <{$smarty.const._MD_A_D3FORUM_H2_POSTHISTORIES}></h2>
 
 
-<div layout="row center-justify" class="control-action">
+<{* ////— ACTION-CONTROL —\\\\ *}>
+<section layout="row center-justify" class="action-control">
 
     <div>
         <form method="get" action="index.php">
@@ -16,12 +17,12 @@
     </div>
 
     <div class="control-view">
-        <button class="help-admin ui-btn" type='button' data-id="4" data-module="<{$mydirname}>" data-help-article="#help-forum-history" title="Help Revision History">
-            <span class="ui-icon ui-icon-help"></span>
+        <button class="help-admin button" type='button' data-id="4" data-module="<{$mydirname}>" data-help-article="#help-forum-history" title="<{$smarty.const._HELP}>">
+            <b>?</b>
         </button>
     </div>
 
-</div>
+</section>
 
 
 <table class="d3forum_post_histories outer">

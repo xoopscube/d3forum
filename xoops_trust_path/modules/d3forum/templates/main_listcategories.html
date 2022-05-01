@@ -125,10 +125,10 @@
 
 
 
-            <{* ------- Admin Manager *}>
             <div layout="rows center-justify">
 
-                <div self="size-x1 inline sm-full" class="action-control" role="group" aria-label="Actions">
+                <{* ////— ACTION-CONTROL —\\\\ *}>
+                <section self="size-x1 inline sm-full" class="action-control" role="group" aria-label="Actions">
 
                 <{if $xoops_isadmin}>
                 <a class="ui-button" href="<{$mod_url}>/index.php?page=categorymanager&amp;cat_id=<{$category.id}>">
@@ -144,7 +144,7 @@
                         <img class="svg forum-plus" src="<{$xoops_url}>/images/icons/topic_plus.svg"> <span self="sm-hide"><{$smarty.const._MD_D3FORUM_LINK_MAKEFORUM}></span></a>
                     <{/if}>
 
-                </div>
+                </section>
 
 
             <a class="ui-button" href="<{$mod_url}>/index.php?cat_ids=<{$category.id}>">

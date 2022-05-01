@@ -1022,8 +1022,8 @@ function d3forum_transact_turnsolvedon_in_forum( $mydirname, $forum_id ) {
 
 // return purified HTML
 function d3forum_transact_htmlpurify( $text, $mydirname ) {
-	// if( substr( PHP_VERSION , 0 , 1 ) != 4 && file_exists( XOOPS_LIBRARY_PATH.'/htmlpurifier/library/HTMLPurifier.auto.php' ) ) {
-	require_once XOOPS_LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php';
+	if( file_exists( LIBRARY_PATH.'/htmlpurifier/library/HTMLPurifier.auto.php' ) ) {
+	require_once LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php';
 
 	$config = HTMLPurifier_Config::createDefault();
 
@@ -1054,6 +1054,7 @@ function d3forum_transact_htmlpurify( $text, $mydirname ) {
 		mb_substitute_character( $_substitute );
 	}
 
-	// }
+	}
+
 	return $text;
 }

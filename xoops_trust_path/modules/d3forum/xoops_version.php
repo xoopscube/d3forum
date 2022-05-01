@@ -20,31 +20,32 @@ if ( ! file_exists( $langmanpath ) ) {
 require_once( $langmanpath );
 
 $langman = D3LanguageManager::getInstance();
-
 $langman->read( 'modinfo.php', $mydirname, $mytrustdirname, false );
 
 $constpref = '_MI_' . strtoupper( $mydirname );
 
+// Manifesto
+$modversion['dirname']          = $mydirname;
+$modversion['trust_dirname']    = $mytrustdirname;
 $modversion['name']             = constant( $constpref . '_NAME' );
+$modversion['version']          = '2.31';
+$modversion['detailed_version'] = '2.31.2';
 $modversion['description']      = constant( $constpref . '_DESC' );
-$modversion['version']          = 2.31;
-$modversion['detailed_version'] = '2.31.0';
-$modversion['credits']          = '@domifara, @naao Naoki Okino, @nao-pon Naoki Sawada, @gigamaster (XCL/PHP7)';
 $modversion['author']           = 'Gijoe (peak.ne.jp) and Jidaikbo, @nao-pon Naoki Sawada';
-$modversion['cube_style']       = true;
-$modversion['help']             = 'help.html';
+$modversion['credits']          = '@domifara, @naao Naoki Okino, @nao-pon Naoki Sawada, @gigamaster (XCL/PHP7)';
 $modversion['license']          = 'GPL';
+$modversion['image']            = '/images/module_forum.svg';
+$modversion['icon']             = 'images/module_icon.svg';
+$modversion['help']             = 'help.html';
 $modversion['official']         = 0;
-// $modversion['image'] = file_exists($mydirpath . '/images/module_forum.svg') ? '/images/module_forum.svg' : 'module_icon.php';
-$modversion['image']         = '/images/module_forum.svg';
-$modversion['dirname']       = $mydirname;
-$modversion['trust_dirname'] = $mytrustdirname;
+$modversion['cube_style']       = true;
 
+// SQL
 // Any tables can't be touched by modulesadmin.
 $modversion['sqlfile'] = false;
 $modversion['tables']  = [];
 
-// Admin things
+// Admin
 $modversion['hasAdmin']   = 1;
 $modversion['adminindex'] = 'admin/index.php';
 $modversion['adminmenu']  = 'admin/admin_menu.php';
