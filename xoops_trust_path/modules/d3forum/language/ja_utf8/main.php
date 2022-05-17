@@ -76,12 +76,12 @@ define( '_MD_D3FORUM_TOP' , 'トップ');
 define( '_MD_D3FORUM_WHOLE' , '全体');
 define( '_MD_D3FORUM_ALT_MARKEDYES' , '注目トピック');
 define( '_MD_D3FORUM_ALT_MARKEDNO' , '非注目トピック');
-define( '_MD_D3FORUM_MARKEDYES_DESC' , 'あなたはこのトピックを<em class="d3f_attn" title="投稿一覧画面でこのトピックは更新日時に関わらず、常に上の方に表示されます">注目トピック</em>にしています');
-define( '_MD_D3FORUM_MARKEDNO_DESC' , 'このトピックを<em class="d3f_attn" title="投稿一覧画面やブロック等で最上位に表示されます">注目トピック</em>にすることができます');
+define( '_MD_D3FORUM_MARKEDYES_DESC' , 'あなたはこのトピックを<em class="d3f_attn" aria-label="投稿一覧画面でこのトピックは更新日時に関わらず、常に上の方に表示されます">注目トピック</em>にしています');
+define( '_MD_D3FORUM_MARKEDNO_DESC' , 'このトピックを<em class="d3f_attn" aria-label="投稿一覧画面やブロック等で最上位に表示されます">注目トピック</em>にすることができます');
 define( '_MD_D3FORUM_ALT_SOLVEDYES' , '解決済トピック');
 define( '_MD_D3FORUM_ALT_SOLVEDNO' , '未解決トピック');
-define( '_MD_D3FORUM_SOLVEDYES_DESC' , 'このトピックは<em class="d3f_attn" title="管理者、モデレータによって、話題が解決しているとされています">解決済みトピック</em>です');
-define( '_MD_D3FORUM_SOLVEDNO_DESC' , 'このトピックは<em class="d3f_attn" title="話題への回答をまだ募集している状態です。">未解決トピック</em>です');
+define( '_MD_D3FORUM_SOLVEDYES_DESC' , 'このトピックは<em class="d3f_attn" aria-label="管理者、モデレータによって、話題が解決しているとされています">解決済みトピック</em>です');
+define( '_MD_D3FORUM_SOLVEDNO_DESC' , 'このトピックは<em class="d3f_attn" aria-label="話題への回答をまだ募集している状態です。">未解決トピック</em>です');
 define( '_MD_D3FORUM_MARK_TURNON' , '注目トピックをオンにする');
 define( '_MD_D3FORUM_MARK_TURNOFF' , '注目トピックをオフにする');
 define( '_MD_D3FORUM_SOLVED_TURNON' , '解決済とする');
@@ -172,7 +172,7 @@ define( '_MD_D3FORUM_LASTVISIT' , '最終訪問日時');
 
 // topic attributes (done)
 define( '_MD_D3FORUM_TOPICLOCKED' , 'ロックされたトピック');
-define( '_MD_D3FORUM_TOPICLOCKED_DESC' , 'このトピックは管理者もしくはモデレータにより<em class="d3f_attn" title="あたらしい書き込みや編集はできません">ロックされています</em>。');
+define( '_MD_D3FORUM_TOPICLOCKED_DESC' , 'このトピックは管理者もしくはモデレータにより<em class="d3f_attn" aria-label="あたらしい書き込みや編集はできません">ロックされています</em>。');
 define( '_MD_D3FORUM_TOPICSTICKY' , '特別扱いされたトピック');
 define( '_MD_D3FORUM_TOPICPOPULAR' , '人気トピック');
 define( '_MD_D3FORUM_TOPICNEWPOSTS' , '新しい投稿があります');

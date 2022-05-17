@@ -27,7 +27,7 @@
         </div>
 
         <div self="top mt-2 mr-2">
-            <a href="<{$mod_url}>/index.php?page=rss&amp;forum_id=<{$forum.id}>&amp;odr=1" title="<{$smarty.const._MD_D3FORUM_LINK_FORUMRSS}>">
+            <a href="<{$mod_url}>/index.php?page=rss&amp;forum_id=<{$forum.id}>&amp;odr=1" aria-label="<{$smarty.const._MD_D3FORUM_LINK_FORUMRSS}>">
             <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg" alt="RSS"></a>
         </div>
 
@@ -166,7 +166,7 @@
 
                     <{if $mod_config.use_solved && ! $topic.solved}>
                         <{if $forum.isadminormod}>
-                        <a href="<{$mod_url}>/index.php?page=update_topic_solved&amp;topic_id=<{$topic.id}>&amp;ret_name=forum_id&amp;ret_val=<{$forum.id}>" title="<{$smarty.const._MD_D3FORUM_SOLVED_TURNON}>">
+                        <a href="<{$mod_url}>/index.php?page=update_topic_solved&amp;topic_id=<{$topic.id}>&amp;ret_name=forum_id&amp;ret_val=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_SOLVED_TURNON}>">
                             <img class="svg solved-no" src="<{$xoops_url}>/images/icons/topic_status_solved0.svg" alt="<{$smarty.const._MD_D3FORUM_ALT_SOLVEDNO}>">
                         </a>
                         <{else}>
@@ -176,7 +176,7 @@
 
                     <{if $mod_config.use_solved && $topic.solved}>
                     <{if $forum.isadminormod}>
-                    <a href="<{$mod_url}>/index.php?page=update_topic_solved&amp;topic_id=<{$topic.id}>&amp;ret_name=forum_id&amp;ret_val=<{$forum.id}>" title="<{$smarty.const._MD_D3FORUM_SOLVED_TURNOFF}>">
+                    <a href="<{$mod_url}>/index.php?page=update_topic_solved&amp;topic_id=<{$topic.id}>&amp;ret_name=forum_id&amp;ret_val=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_SOLVED_TURNOFF}>">
                         <img class="svg solved" src="<{$xoops_url}>/images/icons/topic_status_solved1.svg" alt="<{$smarty.const._MD_D3FORUM_ALT_SOLVEDYES}>">
                     </a>
                     <{else}>
@@ -186,7 +186,7 @@
 
 
                     <{if $mod_config.allow_mark && $uid && $topic.u2t_marked}>
-                    <a href="<{$mod_url}>/index.php?page=update_u2t_marked&amp;topic_id=<{$topic.id}>&amp;ret_name=forum_id&amp;ret_val=<{$forum.id}>" title="<{$smarty.const._MD_D3FORUM_MARK_TURNOFF}>">
+                    <a href="<{$mod_url}>/index.php?page=update_u2t_marked&amp;topic_id=<{$topic.id}>&amp;ret_name=forum_id&amp;ret_val=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_MARK_TURNOFF}>">
                         <img class="svg marked" src="<{$xoops_url}>/images/icons/topic_status_marked1.svg" alt="<{$smarty.const._MD_D3FORUM_ALT_MARKEDYES}>"></a>
                     <{/if}>
                     <a href="<{$mod_url}>/index.php?topic_id=<{$topic.id}>#post_id<{$topic.last_post_id}>"><{$topic.title}></a>
@@ -194,7 +194,7 @@
                 </h3>
 
                 <{if $topic.replies>0}>
-                <div self="px-2" title="<{$smarty.const._MD_D3FORUM_LASTPOST}>">
+                <div self="px-2" aria-label="<{$smarty.const._MD_D3FORUM_LASTPOST}>">
 
                     <p>
                         <{$smarty.const._MD_D3FORUM_LASTPOST}> <span class="badge"><{$topic.last_post_time_formatted}></span> -

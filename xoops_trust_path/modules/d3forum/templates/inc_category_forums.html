@@ -10,7 +10,7 @@
             <{$forum.title}>
         </a>
         <{if $xoops_isadmin}>
-        <a self="right" href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum.id}>" title="<{$smarty.const._MD_D3FORUM_LINK_FORUMMANAGER}>">
+        <a self="right" href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_FORUMMANAGER}>">
             <img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg"></a>
         <{/if}>
     </h4>
@@ -31,7 +31,7 @@
 
         <{* RSS margin-right = negative 4x 0.25rem (mr-n4) *}>
         <a self="" href="<{$mod_url}>/index.php?page=rss&amp;forum_id=<{$forum.id}>">
-            <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg" title="<{$smarty.const._MD_D3FORUM_LINK_FORUMRSS}>">
+            <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg" aria-label="<{$smarty.const._MD_D3FORUM_LINK_FORUMRSS}>">
         </a>
     </footer>
     <{* ------- /Activity Overview - Forums *}>

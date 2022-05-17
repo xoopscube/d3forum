@@ -8,10 +8,10 @@
         <{* ----- Post Header *}>
         <div self="size-x1" class="post-title">
             <h3 class="<{if $post.invisible || ! $post.approval }><{if $post.invisible}> invisible<{elseif ! $post.approval}> yetapproval<{/if}><{/if}>">
-                <a id="post_id<{$post.id}>" title="post_id<{$post.id}>">
+                <a id="post_id<{$post.id}>" aria-label="post_id<{$post.id}>">
                     <img class="svg posticon" src="<{$xoops_url}>/images/icons/posticon<{$post.icon}>.svg" alt="<{$icon_meanings[$post.icon]}>"></a>
                 <{if $caller == 'listposts'}>
-                <a href="<{$mod_url}>/index.php?post_id=<{$post.id}>" id="post_path<{$post.unique_path}>" title="post_path<{$post.unique_path}>">
+                <a href="<{$mod_url}>/index.php?post_id=<{$post.id}>" id="post_path<{$post.unique_path}>" aria-label="post_path<{$post.unique_path}>">
                     <{$post.subject}></a>
                 <{else}>
                 <{$post.subject}>
@@ -39,7 +39,7 @@
                     data-toggle="popover"
                     data-html="true"
                     data-placement="top"
-                    title="<{$smarty.const._MD_D3FORUM_HISTORIES}>"
+                    aria-label="<{$smarty.const._MD_D3FORUM_HISTORIES}>"
                     data-content="
                         <a href='<{$mod_url}>/admin/index.php?page=post_histories&amp;post_id=<{$post.id}>'}>
                         <{$smarty.const._MD_D3FORUM_LASTMODIFIED}><br><{$post.modified_time_formatted}></a>">
@@ -60,7 +60,7 @@
         <div self="m-3 <{cycle values='left first,top last'}>" class="post-author">
             <{if $post.poster_avatar}>
             <{if $post.poster_uid != 0}>
-            <a href="<{$xoops_url}>/userinfo.php?uid=<{$post.poster_uid}>" title="<{$post.poster_uname}>">
+            <a href="<{$xoops_url}>/userinfo.php?uid=<{$post.poster_uid}>" aria-label="<{$post.poster_uname}>">
                 <{/if}>
                 <{* TODO Theme options to customize UI *}>
                 <{if $post.poster_avatar.height > 48}>
@@ -87,7 +87,7 @@
                 <{if $post.poster_uid != 0}>
                 <{if $post.poster_rank_title}>
                 <br>
-                <img src="<{$xoops_upload_url}>/<{$post.poster_rank_image}>" alt="<{$post.poster_rank_title}>" title="<{$post.poster_rank_title}>">
+                <img src="<{$xoops_upload_url}>/<{$post.poster_rank_image}>" alt="<{$post.poster_rank_title}>" aria-label="<{$post.poster_rank_title}>">
                 <{/if}>
 
                 <{* <{$smarty.const._MD_D3FORUM_POSTERJOINED}>: <span class="badge"><{$post.poster_regdate_formatted}></span> *}>
@@ -110,7 +110,7 @@
                 <{* <{$post.guest_email}> *}>
                 <{if $post.guest_url}>
                 <br>
-                <a href="<{$post.guest_url}>" title="<{$post.guest_url}>"><{$smarty.const._MD_D3FORUM_TH_GUESTURL}></a><{/if}>
+                <a href="<{$post.guest_url}>" aria-label="<{$post.guest_url}>"><{$smarty.const._MD_D3FORUM_TH_GUESTURL}></a><{/if}>
                 <{if $post.guest_trip}>
                 <br>
                 <{$smarty.const._MD_D3FORUM_TH_GUESTTRIP}>: <{$post.guest_trip}><{/if}>
@@ -154,7 +154,7 @@
                 <button type="submit"
                         class="ui-button vote"
                         value="<{$smarty.const._MD_D3FORUM_VOTEPOINTDSCBEST}>"
-                        title="<{$smarty.const._MD_D3FORUM_VOTEPOINTDSCBEST}>">
+                        aria-label="<{$smarty.const._MD_D3FORUM_VOTEPOINTDSCBEST}>">
                     <img class="svg thumb-up" src="<{$xoops_url}>/images/icons/thumb-up.svg">
                     <{* <span self="sm-hide"><{$smarty.const._MD_D3FORUM_VOTEPOINTDSCBEST}></span> *}>
                 </button>
@@ -180,28 +180,28 @@
 
                 <{* ------- Admin or Moderator *}>
                     <{if $forum.isadminormod}>
-                    <a class="ui-button cutpaste" href="<{$mod_url}>/index.php?page=cutpasteposts&amp;post_id=<{$post.id}>" title="<{$smarty.const._MD_D3FORUM_CUTPASTEPOSTS}>">
+                    <a class="ui-button cutpaste" href="<{$mod_url}>/index.php?page=cutpasteposts&amp;post_id=<{$post.id}>" aria-label="<{$smarty.const._MD_D3FORUM_CUTPASTEPOSTS}>">
                         <img class="svg tools" src="<{$xoops_url}>/images/icons/tools.svg"></a>
                     <{/if}>
 
                     <{if ! $post.approval && $forum.isadminormod}>
-                    <a class="ui-button" href="<{$mod_url}>/index.php?page=update_post_approval&amp;post_id=<{$post.id}>&amp;ret_name=<{$ret_name}>&amp;ret_val=<{$ret_val}>" title="<{$smarty.const._MD_D3FORUM_LABEL_DOAPPROVAL}>">
+                    <a class="ui-button" href="<{$mod_url}>/index.php?page=update_post_approval&amp;post_id=<{$post.id}>&amp;ret_name=<{$ret_name}>&amp;ret_val=<{$ret_val}>" aria-label="<{$smarty.const._MD_D3FORUM_LABEL_DOAPPROVAL}>">
                         <img class="svg topic_invisible" src="<{$xoops_url}>/images/icons/topic_invisible.svg"></a>
                     <{/if}>
                 <{* ------- / Admin or Moderator *}>
 
                 <{if $post.can_edit}>
-                <a class="ui-button" href="<{$mod_url}>/index.php?page=edit&amp;post_id=<{$post.id}>" title="<{$smarty.const._MD_D3FORUM_POSTEDIT}>">
+                <a class="ui-button" href="<{$mod_url}>/index.php?page=edit&amp;post_id=<{$post.id}>" aria-label="<{$smarty.const._MD_D3FORUM_POSTEDIT}>">
                     <img class="svg edit-box" src="<{$xoops_url}>/images/icons/edit-box.svg"></a>
                 <{/if}>
 
                 <{if $post.can_delete}>
-                <a class="ui-button delete" href="<{$mod_url}>/index.php?page=delete&amp;post_id=<{$post.id}>" title="<{$smarty.const._MD_D3FORUM_POSTDELETE}>">
+                <a class="ui-button delete" href="<{$mod_url}>/index.php?page=delete&amp;post_id=<{$post.id}>" aria-label="<{$smarty.const._MD_D3FORUM_POSTDELETE}>">
                     <img class="svg delete" src="<{$xoops_url}>/images/icons/delete.svg" alt=""></a>
                 <{/if}>
 
                 <{if $post.can_reply}>
-                <a class="ui-button" href="<{$mod_url}>/index.php?page=reply&amp;post_id=<{$post.id}>" title="<{$smarty.const._MD_D3FORUM_POSTREPLY}>">
+                <a class="ui-button" href="<{$mod_url}>/index.php?page=reply&amp;post_id=<{$post.id}>" aria-label="<{$smarty.const._MD_D3FORUM_POSTREPLY}>">
                     <img class="svg reply" src="<{$xoops_url}>/images/icons/reply.svg"> <{$smarty.const._MD_D3FORUM_POSTREPLY}></a>
                 <{/if}>
 

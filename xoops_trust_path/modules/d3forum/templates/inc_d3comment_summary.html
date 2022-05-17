@@ -2,7 +2,7 @@
 <div class="ui-dev-mode"><{$smarty.template}></div>
 
 <{if $topic.comment_link}>
-<div title="topic-comment-link">
+<div aria-label="topic-comment-link">
 
 	<h4>
         <a href="<{$topic.comment_link}>"><{$smarty.const._MD_D3FORUM_LINK_COMMENTSOURCE}></a>
@@ -29,7 +29,7 @@
         </div>
 
     <{elseif $topic.comment_description}>
-    <div title="topic-comment-description"><{$topic.comment_description}></div>
+    <div aria-label="topic-comment-description"><{$topic.comment_description}></div>
 
  </div>
 <{/if}>

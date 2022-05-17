@@ -76,12 +76,12 @@ define( '_MD_D3FORUM_TOP' , 'Top');
 define( '_MD_D3FORUM_WHOLE' , 'Whole forum');
 define( '_MD_D3FORUM_ALT_MARKEDYES' , 'Marked');
 define( '_MD_D3FORUM_ALT_MARKEDNO' , 'Not marked');
-define( '_MD_D3FORUM_MARKEDYES_DESC' , 'You have checked this topic as <em class="d3f_attn" title="MARKED topics are displayed in the top of list">MARKED</em>');
-define( '_MD_D3FORUM_MARKEDNO_DESC' , 'You can check this topic as <em class="d3f_attn" title="MARKED topics are displayed in the top of list">MARKED</em>');
+define( '_MD_D3FORUM_MARKEDYES_DESC' , 'You have checked this topic as <em class="d3f_attn" aria-label="MARKED topics are displayed in the top of list">MARKED</em>');
+define( '_MD_D3FORUM_MARKEDNO_DESC' , 'You can check this topic as <em class="d3f_attn" aria-label="MARKED topics are displayed in the top of list">MARKED</em>');
 define( '_MD_D3FORUM_ALT_SOLVEDYES' , 'Solved topic');
 define( '_MD_D3FORUM_ALT_SOLVEDNO' , 'Unsolved topic');
-define( '_MD_D3FORUM_SOLVEDYES_DESC' , 'This topic is <em class="d3f_attn" title="SOLVED topics are treated as closed topics by admins or moderators">SOLVED</em>');
-define( '_MD_D3FORUM_SOLVEDNO_DESC' , 'This topic is <em class="d3f_attn" title="Responses are welcome">UNSOLVED</em>');
+define( '_MD_D3FORUM_SOLVEDYES_DESC' , 'This topic is <em class="d3f_attn" aria-label="SOLVED topics are treated as closed topics by admins or moderators">SOLVED</em>');
+define( '_MD_D3FORUM_SOLVEDNO_DESC' , 'This topic is <em class="d3f_attn" aria-label="Responses are welcome">UNSOLVED</em>');
 define( '_MD_D3FORUM_MARK_TURNON' , 'Mark this topic');
 define( '_MD_D3FORUM_MARK_TURNOFF' , 'Unmark this topic');
 define( '_MD_D3FORUM_SOLVED_TURNON' , 'Turn solved on');
@@ -172,7 +172,7 @@ Define( '_MD_D3FORUM_LASTVISIT' , 'You last visited');
 
 // topic attributes (done)
 Define( '_MD_D3FORUM_TOPICLOCKED' , 'Locked topic');
-Define( '_MD_D3FORUM_TOPICLOCKED_DESC' , 'This topic is<em class="d3f_attn" title="You cannot reply nor edit posts">LOCKED</em> by administrators or moderators');
+Define( '_MD_D3FORUM_TOPICLOCKED_DESC' , 'This topic is<em class="d3f_attn" aria-label="You cannot reply nor edit posts">LOCKED</em> by administrators or moderators');
 Define( '_MD_D3FORUM_TOPICSTICKY' , 'Sticky topic');
 Define( '_MD_D3FORUM_TOPICPOPULAR' , 'Popular topic');
 Define( '_MD_D3FORUM_TOPICNEWPOSTS' , 'Topic with new posts');
