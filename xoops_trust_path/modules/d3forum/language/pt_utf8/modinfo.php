@@ -16,7 +16,7 @@ define($constpref.'_RSS_HIDDEN_TITLEDSC','Own title uses when empty value.');
 
 // Appended by Xoops Language Checker -GIJOE- in 2007-09-28 15:55:33
 define($constpref.'_DEFAULT_OPTIONS','Default checked in post form');
-define($constpref.'_DEFAULT_OPTIONSDSC','List checked options separated by comma(,).<br />eg) smiley,xcode,br,number_entity<br />You can add these options: special_entity html attachsig u2t_marked');
+define($constpref.'_DEFAULT_OPTIONSDSC','List checked options separated by comma(,).<br>eg) smiley,xcode,br,number_entity<br>You can add these options: special_entity html attachsig u2t_marked');
 
 // Appended by Xoops Language Checker -GIJOE- in 2007-09-27 16:50:42
 define($constpref.'_BODY_EDITOR','Body Editor');
@@ -50,7 +50,7 @@ define($constpref.'_ADMENU_MYTPLSADMIN','Modelos');
 
 // configurations
 define($constpref.'_TOP_MESSAGE','Mensagem no inicio do forum'); //
-define($constpref.'_TOP_MESSAGEDEFAULT','<h1 class="d3f_title">Inicio do Forum</h1><p class="d3f_welcome">Para começar a visualizar as mensagens, selecionar uma categoria ou o forum de que você queira visitar na seleção abaixo.</p>'); //
+define($constpref.'_TOP_MESSAGEDEFAULT','<h2 class="d3f_title">Inicio do Forum</h2><p class="d3f_welcome">Para começar a visualizar as mensagens, selecionar uma categoria ou o forum de que você queira visitar na seleção abaixo.</p>'); //
 define($constpref.'_ALLOW_HTML','Permitir HTML'); //
 define($constpref.'_ALLOW_HTMLDSC','Não coloque SIM, ocasionalmente. Pois isto pode conter uma vunerabilidade e que um usuario coloque um script malicioso.'); //
 define($constpref.'_ALLOW_TEXTIMG','Permitir visualzar as imagens externas na mensagem'); //

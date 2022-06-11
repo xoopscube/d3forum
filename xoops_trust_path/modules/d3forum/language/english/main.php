@@ -76,17 +76,17 @@ define( '_MD_D3FORUM_TOP' , 'Top');
 define( '_MD_D3FORUM_WHOLE' , 'Whole forum');
 define( '_MD_D3FORUM_ALT_MARKEDYES' , 'Marked');
 define( '_MD_D3FORUM_ALT_MARKEDNO' , 'Not marked');
-define( '_MD_D3FORUM_MARKEDYES_DESC' , 'You have checked this topic as <em class="d3f_attn" aria-label="MARKED topics are displayed in the top of list">MARKED</em>');
-define( '_MD_D3FORUM_MARKEDNO_DESC' , 'You can check this topic as <em class="d3f_attn" aria-label="MARKED topics are displayed in the top of list">MARKED</em>');
+define( '_MD_D3FORUM_MARKEDYES_DESC' , 'You have checked this topic as MARKED topics are displayed in the top of list MARKED');
+define( '_MD_D3FORUM_MARKEDNO_DESC' , 'You can check this topic as MARKED topics are displayed in the top of list MARKED');
 define( '_MD_D3FORUM_ALT_SOLVEDYES' , 'Solved topic');
 define( '_MD_D3FORUM_ALT_SOLVEDNO' , 'Unsolved topic');
-define( '_MD_D3FORUM_SOLVEDYES_DESC' , 'This topic is <em class="d3f_attn" aria-label="SOLVED topics are treated as closed topics by admins or moderators">SOLVED</em>');
-define( '_MD_D3FORUM_SOLVEDNO_DESC' , 'This topic is <em class="d3f_attn" aria-label="Responses are welcome">UNSOLVED</em>');
-define( '_MD_D3FORUM_MARK_TURNON' , 'Mark this topic');
-define( '_MD_D3FORUM_MARK_TURNOFF' , 'Unmark this topic');
-define( '_MD_D3FORUM_SOLVED_TURNON' , 'Turn solved on');
-define( '_MD_D3FORUM_SOLVED_TURNOFF' , 'Turn solved off');
-define( '_MD_D3FORUM_LINK_TOPICHISTORIES' , 'View edit history of topic');
+define( '_MD_D3FORUM_SOLVEDYES_DESC' , 'This topic is SOLVED topics are treated as closed topics by admins or moderators SOLVED');
+define( '_MD_D3FORUM_SOLVEDNO_DESC' , 'This topic is UNSOLVED - Responses are welcome');
+define( '_MD_D3FORUM_MARK_TURNON' , 'Sticky topic');
+define( '_MD_D3FORUM_MARK_TURNOFF' , 'Unsticky topic');
+define( '_MD_D3FORUM_SOLVED_TURNON' , 'Solved');
+define( '_MD_D3FORUM_SOLVED_TURNOFF' , 'Unsolved');
+define( '_MD_D3FORUM_LINK_TOPICHISTORIES' , 'View History');
 define( '_MD_D3FORUM_A_TOPOFTHETOPIC' , 'Top of the posts'); //jidaikobo
 define( '_MD_D3FORUM_A_BOTTOMOFTHETOPIC' , 'Bottom of the posts'); //jidaikobo
 

@@ -31,7 +31,7 @@ define($constpref.'_ADMENU_MYPREFERENCES' , '一般設定' ) ;
 
 // configurations
 define($constpref.'_TOP_MESSAGE','フォーラムトップのメッセージ');
-define($constpref.'_TOP_MESSAGEDEFAULT','<h1 class="d3f_title">フォーラムトップ</h1><p class="d3f_welcome">興味のあるフォーラムへぜひご参加ください</p>');
+define($constpref.'_TOP_MESSAGEDEFAULT','<h2 class="d3f_title">フォーラムトップ</h2><p class="d3f_welcome">興味のあるフォーラムへぜひご参加ください</p>');
 define($constpref.'_SHOW_BREADCRUMBS','パンくずを表示する');
 define($constpref.'_DEFAULT_OPTIONS','投稿オプションのデフォルト値');
 define($constpref.'_DEFAULT_OPTIONSDSC','新規トピックや返信の初期状態で有効となっているオプションをカンマ(,)で区切って入力します。<br />インストール直後は smiley,xcode,br,number_entity となっています。<br />その他、 special_entity html attachsig u2t_marked 等が指定可能です');

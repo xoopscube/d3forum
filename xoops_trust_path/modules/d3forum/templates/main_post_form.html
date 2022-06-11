@@ -49,7 +49,7 @@
     <input type="hidden" name="reference_quote" id="reference_quote" value="<{$reference_quote}>">
 
 
-	<table class="table-form">
+	<table class="outer">
 		<tr>
 			<td>
                 <label for="subject"><{$smarty.const._MD_D3FORUM_SUBJECT}></label>
@@ -156,34 +156,34 @@
 			<td>
 				<!-- approval -->
 				<{if $forum.isadminormod && $mode == "edit" && ! $post.approval}>
-                <div self="size-x1 my-4">
+				<label for="approval" self="centered">
 				<input type="checkbox" name="approval" id="approval" value="1" <{$approval_checked}>>
-				<label for="approval"><{$smarty.const._MD_D3FORUM_LABEL_DOAPPROVAL}></label>
-                </div>
+				<{$smarty.const._MD_D3FORUM_LABEL_DOAPPROVAL}>
+				</label>
 				<{/if}>
 
 				<!-- solve or not -->
 				<{if $can_change_solved}>
-                <div self="size-x1 my-4">
+				<label for="solved" self="centered">
 				<input type="checkbox" name="solved" id="solved" value="1" <{$solved_checked}>>
-				<label for="solved"><{$smarty.const._MD_D3FORUM_TH_SOLVED}></label>
-                </div>
+				<{$smarty.const._MD_D3FORUM_TH_SOLVED}>
+				</label>
 				<{/if}>
 
 				<!-- mark -->
 				<{if $allow_mark}>
-                <div self="size-x1 my-4">
+				<label for="u2t_marked" self="centered">
 				<input type="checkbox" name="u2t_marked" id="u2t_marked" value="1" <{$u2t_marked_checked}>>
-				<label for="u2t_marked"><{$smarty.const._MD_D3FORUM_MARK_TURNON}></label>
-                </div>
+				<{$smarty.const._MD_D3FORUM_MARK_TURNON}>
+				</label>
 				<{/if}>
 
 				<!-- html -->
 				<{if $allow_html}>
-                <div self="size-x1 my-4">
+				<label for="html" self="centered">
 				<input type="checkbox" name="html" id="html" value="1" <{$html_checked}>>
-				<label for="html"><{$smarty.const._MD_D3FORUM_ENABLEHTML}></label>
-                </div>
+				<{$smarty.const._MD_D3FORUM_ENABLEHTML}>
+				</label>
 				<{/if}>
             </td>
         </tr>
@@ -191,73 +191,81 @@
         <tr>
             <td><{$smarty.const._MD_D3FORUM_LABEL_ADVANCEDOPTIONS}></td>
             <td>
+				<label for="d3f_post_advanced_options_onoff">
 				<input type="checkbox" class="switch" id="d3f_post_advanced_options_onoff"
 					   onclick="if(this.checked){xoopsGetElementById('d3f_post_advanced_options').style.display='block';
-					   }else{xoopsGetElementById('d3f_post_advanced_options').style.display='none';};">
-				<label for="d3f_post_advanced_options_onoff"><{$smarty.const._MD_D3FORUM_LABEL_ADVANCEDOPTIONS}></label>
+					   }else{xoopsGetElementById('d3f_post_advanced_options').style.display='none';}">
+				<{$smarty.const._MD_D3FORUM_LABEL_ADVANCEDOPTIONS}>
+				</label>
 
 				<div id="d3f_post_advanced_options" layout="column" style="display:none;">
 
 					<!-- smiley -->
-                    <div self="size-x1 my-4">
+					<label for="smiley" self="centered">
 					<input type="checkbox" name="smiley" id="smiley" value="1" <{$smiley_checked}>>
-					<label for="smiley"><{$smarty.const._MD_D3FORUM_ENABLESMILEY}></label>
-                    </div>
+					<{$smarty.const._MD_D3FORUM_ENABLESMILEY}>
+					</label>
+
+
 
 					<!-- xcode -->
-                    <div self="size-x1 my-4">
+					<label for="xcode" self="centered">
 					<input type="checkbox" name="xcode" id="xcode" value="1" <{$xcode_checked}>>
-					<label for="xcode"><{$smarty.const._MD_D3FORUM_ENABLEXCODE}></label>
-                    </div>
+					<{$smarty.const._MD_D3FORUM_ENABLEXCODE}>
+					</label>
+
 
 					<!-- br -->
-                    <div self="size-x1 my-4">
+					<label for="br" self="centered">
 					<input type="checkbox" name="br" id="br" value="1" <{$br_checked}>>
-					<label for="br"><{$smarty.const._MD_D3FORUM_ENABLEBR}></label>
-                    </div>
+					<{$smarty.const._MD_D3FORUM_ENABLEBR}>
+					</label>
+
 
 					<!-- number_entity -->
-                    <div self="size-x1 my-4">
+					<label for="number_entity" self="centered">
 					<input type="checkbox" name="number_entity" id="number_entity" value="1" <{$number_entity_checked}>>
-					<label for="number_entity"><{$smarty.const._MD_D3FORUM_ENABLENUMBERENTITY}></label>
-                    </div>
+					<{$smarty.const._MD_D3FORUM_ENABLENUMBERENTITY}>
+					</label>
 
 					<!-- special_entity -->
-                    <div self="size-x1 my-4">
+					<label for="special_entity" self="centered">
 					<input type="checkbox" name="special_entity" id="special_entity" value="1" <{$special_entity_checked}>>
-					<label for="special_entity"><{$smarty.const._MD_D3FORUM_ENABLESPECIALENTITY}></label>
-                    </div>
+					<{$smarty.const._MD_D3FORUM_ENABLESPECIALENTITY}>
+					</label>
+
 
 					<!-- hide_uid -->
 					<{if $allow_hideuid}>
-                    <div self="size-x1 my-4">
+
+					<label for="hide_uid" self="centered">
 					<input type="checkbox" name="hide_uid" id="hide_uid" value="1" <{$hide_uid_checked}>>
-					<label for="hide_uid"><{$smarty.const._MD_D3FORUM_LABEL_HIDEUID}></label>
-                    </div>
+					<{$smarty.const._MD_D3FORUM_LABEL_HIDEUID}>
+					</label>
 					<{/if}>
 
 					<!-- signature -->
 					<{if $allow_sig}>
-                    <div self="size-x1 my-4">
+					<label for="attachsig" self="centered">
 					<input type="checkbox" name="attachsig" id="attachsig" value="1" <{$attachsig_checked}>>
-					<label for="attachsig"><{$smarty.const._MD_D3FORUM_LABEL_ATTACHSIG}></label>
-                    </div>
+					<{$smarty.const._MD_D3FORUM_LABEL_ATTACHSIG}>
+					</label>
 					<{/if}>
 
 					<!-- notification thread-new_post -->
 					<{if $allow_notify}>
-                    <div self="size-x1 center my-4">
+					<label for="notify" self="centered">
 					<input type="checkbox" name="notify" id="notify" value="1" <{$notify_checked}>>
-					<label for="notify"><{$smarty.const._MD_D3FORUM_LABEL_NEWPOSTNOTIFY}></label>
-                    </div>
+					<{$smarty.const._MD_D3FORUM_LABEL_NEWPOSTNOTIFY}>
+					</label>
 					<{/if}>
 
 					<!-- invisible -->
 					<{if $forum.isadminormod}>
-                    <div self="size-x1 center my-4">
+					<label for="invisible" self="centered">
 					<input type="checkbox" name="invisible" id="invisible" value="1" <{$invisible_checked}>>
-					<label for="invisible"><{$smarty.const._MD_D3FORUM_LABEL_POSTINVISIBLE}></label>
-                    </div>
+					<{$smarty.const._MD_D3FORUM_LABEL_POSTINVISIBLE}>
+					</label>
 					<{/if}>
 
 				</div>

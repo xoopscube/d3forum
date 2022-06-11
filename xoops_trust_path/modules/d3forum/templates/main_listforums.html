@@ -1,229 +1,252 @@
+<{* ICONS *}>
+<{include file="db:`$mydirname`_inc_topic_icon.html"}>
+
 <{* Dev-Mode Toggle *}>
 <div class="ui-dev-mode"><{$smarty.template}> </div>
-
-<{include file="$xoops_theme/templates/d3forum/inc_topic_icon.html"}>
 
 
 <{if $mod_config.show_breadcrumbs}>
     <ul class="breadcrumb" aria-label="breadcrumb">
         <li>
             <a href="<{$xoops_url}>/">
-                <img class="svg home" src="<{$xoops_url}>/images/icons/home.svg" alt=""></a>
+                <img class="svg home" src="<{$xoops_url}>/images/icons/home.svg" alt="home">
+            </a>
+        </li>
         <li>
-        <a href="<{$mod_url}>/index.php">
-            <img class="svg forum_1" src="<{$xoops_url}>/images/icons/forum_1.svg" alt=""> <{$smarty.const._MD_D3FORUM_TOP}></a>
+            <a href="<{$mod_url}>/index.php">
+                <img class="svg forum_1" src="<{$xoops_url}>/images/icons/forum_1.svg" alt=""> <{$smarty.const._MD_D3FORUM_TOP}>
+            </a>
+        </li>
         <{foreach name=catgorybreadcrumbs from=$category.paths_raw key=parent_id item=parent_title_raw}>
             <{if ! $smarty.foreach.catgorybreadcrumbs.last}>
-            <li><a href="<{$mod_url}>/index.php?cat_id=<{$parent_id}>"><{$parent_title_raw|escape}></a>
+        <li><a href="<{$mod_url}>/index.php?cat_id=<{$parent_id}>"><{$parent_title_raw|escape}></a></li>
             <{/if}>
         <{/foreach}>
-        <li aria-current="page"><{$category.title}>
+        <li aria-current="page"><{$category.title}></li>
     </ul>
 <{/if}>
 
 
     <{* ------- Category Top message *}>
-    <section layout="column my-4" class="category-top-forums">
-        <div layout="rows center-justify mb-4">
+    <section layout="column my-4" class="category-top">
 
-            <div self="size-x1">
-                <h2><{$category.title}></h2>
-            </div>
+        <div layout="rows center-justify">
 
-            <div self="top mt-2 mr-2">
-                <a href="<{$mod_url}>/index.php?page=rss&amp;cat_ids=<{$category.id}>&amp;odr=1" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYRSS}>">
-                    <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg" alt="RSS"></a>
-            </div>
+            <h2><{$category.title}></h2>
 
-            <{if $category.desc}>
-            <div layout="row" class="category-desc">
-                <{$category.desc}>
-            </div>
+            <{* ------- Admin Control *}>
+            <{if $category.isadminormod}>
+                <div class="dropdown">
+
+                    <a href="#" class="dropdown-toggle ui-button" aria-label="<{$smarty.const._MD_PICO_LINK_EDITCATEGORY}>">
+                        <img class="svg" src="<{$xoops_url}>/images/icons/edit.svg" width="1em" height="" alt="<{$smarty.const._MD_PICO_LINK_EDITCATEGORY}>">
+                    </a>
+
+                    <div class="dropdown-content">
+                        <{if $xoops_isadmin}>
+                            <{* ----- CATEGORY MANAGER *}>
+                            <a href="<{$mod_url}>/index.php?page=categorymanager&amp;cat_id=<{$category.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYMANAGER}>">
+                                <img class="svg edit" src="<{$xoops_url}>/images/icons/edit-box.svg" width="1em" alt="edit">
+                                <{$smarty.const._MD_D3FORUM_LINK_CATEGORYMANAGER}>
+                            </a>
+                            <{* ----- CATEGORY ACCESS *}>
+                            <a href="<{$mod_url}>/admin/index.php?page=category_access&amp;cat_id=<{$category.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYACCESS}>">
+                                <img class="svg lock" src="<{$xoops_url}>/images/icons/lock.svg" width="1em" alt="permissions">
+                                <{$smarty.const._MD_D3FORUM_LINK_CATEGORYACCESS}>
+                            </a>
+                            <{* ----- CATEGORY CREATE *}>
+                            <a href="<{$mod_url}>/index.php?page=makecategory&amp;cat_id=<{$category.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_MAKESUBCATEGORY}> <{$smarty.const._MD_D3FORUM_SUFFIX_UNDERTHISCATEGORY}>">
+                                <img class="svg new" src="<{$xoops_url}>/images/icons/folder-plus.svg" width="1em" alt="new">
+                                <{$smarty.const._MD_D3FORUM_LINK_MAKESUBCATEGORY}>
+                            </a>
+                        <{/if}>
+                    </div>
+
+                </div>
+            <{else}>
+            <{* ----- RSS *}>
+            <a href="<{$mod_url}>/index.php?page=rss&amp;cat_ids=<{$category.id}>&amp;odr=1" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYRSS}>">
+                <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg" alt="RSS">
+            </a>
             <{/if}>
 
         </div>
 
-
-        <{* ------- Admin Action controller *}>
-
-        <article layout="row center-justify sm-column" id="controller">
-
-            <{if $xoops_isadmin}>
-            <div layout="left">
-                <{* ----- CATEGORY MANAGER *}>
-                <a class="button" href="<{$mod_url}>/index.php?page=categorymanager&amp;cat_id=<{$category.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYMANAGER}>">
-                    <img class="svg edit-box" src="<{$xoops_url}>/images/icons/edit-box.svg"></a>
-                <{* ----- CATEGORY ACCESS *}>
-                <a class="button" href="<{$mod_url}>/admin/index.php?page=category_access&amp;cat_id=<{$category.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYACCESS}>">
-                    <img class="svg lock" src="<{$xoops_url}>/images/icons/lock.svg"></a>
-                <{* ----- CATEGORY CREATE *}>
-                <a class="button" href="<{$mod_url}>/index.php?page=makecategory&amp;cat_id=<{$category.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_MAKESUBCATEGORY}> <{$smarty.const._MD_D3FORUM_SUFFIX_UNDERTHISCATEGORY}>">
-                    <img class="svg folder-plus" src="<{$xoops_url}>/images/icons/folder-plus.svg"></a>
+        <{if $category.desc}>
+            <div layout="row" class="description">
+                <{$category.desc}>
             </div>
-            <{/if}>
-
-            <div self="right inline sm-full">
-
-                <{if $category.isadminormod}>
-                <a class="button" href="<{$mod_url}>/index.php?page=makeforum&amp;cat_id=<{$category.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_MAKEFORUM}> <{$smarty.const._MD_D3FORUM_SUFFIX_UNDERTHISCATEGORY}>">
-                    <img class="svg forum-plus" src="<{$xoops_url}>/images/icons/topic_plus.svg"> <{$smarty.const._MD_D3FORUM_LINK_MAKEFORUM}></a>
-                <{/if}>
-
-                <{* ----- List All Topics *}>
-
-                <a class="button" href="<{$mod_url}>/index.php?cat_ids=<{$category.id}>">
-                    <img class="svg list-tree" src="<{$xoops_url}>/images/icons/list-tree.svg"> <{$smarty.const._MD_D3FORUM_LISTTOPICSINCATEGORY}></a>
-
-            </div>
-
-        </article>
-
-        <{* ----- /Admin Action controller *}>
+        <{/if}>
 
     </section>
+
+
+    <{* ------- Admin Action controller *}>
+    <section layout="row center-right" class="action-control">
+
+        <div self="right inline sm-full">
+            <{if $category.isadminormod}>
+            <a class="ui-button" href="<{$mod_url}>/index.php?page=makeforum&amp;cat_id=<{$category.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_MAKEFORUM}> <{$smarty.const._MD_D3FORUM_SUFFIX_UNDERTHISCATEGORY}>">
+                <img class="svg forum-plus" src="<{$xoops_url}>/images/icons/topic_plus.svg">
+                <{$smarty.const._MD_D3FORUM_LINK_MAKEFORUM}>
+            </a>
+            <{/if}>
+
+            <{* ----- List All Topics *}>
+            <a class="ui-button"  href="<{$mod_url}>/index.php?cat_ids=<{$category.id}>">
+                <img class="svg list-tree" src="<{$xoops_url}>/images/icons/list-tree.svg">
+                <{$smarty.const._MD_D3FORUM_LISTTOPICSINCATEGORY}>
+            </a>
+        </div>
+
+    </section>
+    <{* ----- /Admin Action controller *}>
 
 
 
     <{* ----- Subcategories *}>
 
-    <section layout="column mb-4" class="subcategories">
+    <{if $subcategories}>
 
-        <{if $subcategories}>
+    <h4><{$smarty.const._MD_D3FORUM_SUBCATEGORIES}></h4>
 
-        <h3><{$smarty.const._MD_D3FORUM_SUBCATEGORIES}></h3>
+        <{foreach item=subcategory from=$subcategories}>
+        <section layout="column" id="subcategory-<{$subcategory.id}>" class="category-sub">
 
-
-            <{foreach item=subcategory from=$subcategories}>
-
-            <article layout="column" id="subcategory-<{$subcategory.id}>">
-
-                <h4 layout="row center">
+            <div layout="rows center-justify">
+                <h3>
                     <a self="size-x1" href="<{$mod_url}>/index.php?cat_id=<{$subcategory.id}>">
                         <img class="svg category_<{$subcategory.bit_new}>" src="<{$xoops_url}>/images/icons/category_<{$subcategory.bit_new}>.svg" alt="<{$subcategory.title}>">
                         <{$subcategory.title}>
                     </a>
-                    <{if $xoops_isadmin}>
-                    <a self="right" href="<{$mod_url}>/index.php?page=categorymanager&amp;cat_id=<{$subcategory.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYMANAGER}>">
-                        <img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg">
-                    </a>
-                    <{/if}>
-                </h4>
-
-                <{if $subcategory.desc}>
-                <div layout="row stretch p-4" class="category-desc">
-                    <{$subcategory.desc}>
-                </div>
-                <{/if}>
-
-                <{* ------- Activity Overview - Subcategories *}>
-                <footer layout="row center-justify p-2 my-4" class="activity">
-                    <div self="inline">
-                    <div><{$smarty.const._MD_D3FORUM_TOTALTOPICSCOUNT}> <span class="badge"><{$subcategory.topics_count_in_tree}></span></div>
-                    <div><{$smarty.const._MD_D3FORUM_TOTALPOSTSCOUNT}> <span class="badge"><{$subcategory.posts_count_in_tree}></span></div>
-                    </div>
-
-                    <{* RSS margin-right = negative 4x 0.25rem (mr-n4) *}>
-                    <a self="" href="<{$mod_url}>/index.php?page=rss&amp;cat_ids=<{$subcategory.id}>&amp;odr=1" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYRSS}>">
-                        <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg" alt="RSS">
-                    </a>
-                </footer>
-                <{* ------- /Activity Overview - Subcategories *}>
-
-
-            </article>
-            <{/foreach}>
-
-        <{/if}>
-
-        <{* ----- /Subcategories *}>
-
-
-
-        <{* ----- Forums List *}>
-
-        <{if $forums}>
-
-        <h3><{$smarty.const._MD_D3FORUM_FORUM}></h3>
-
-        <article layout="column mb-4">
-
-            <{foreach item=forum from=$forums}>
-
-            <h4 layout="row center-center">
-
-                <a self="size-x1" href="<{$mod_url}>/index.php?forum_id=<{$forum.id}>">
-                    <img class="svg forum" src="<{$xoops_url}>/images/icons/forum_<{$forum.bit_new}>.svg" alt="<{$forum.title}>">
-                    <{$forum.title}>
-                </a>
-
+                </h3>
                 <{if $xoops_isadmin}>
-                <a self="right" href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_FORUMMANAGER}>">
-                    <img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg"></a>
+                    <a href="<{$mod_url}>/index.php?page=categorymanager&amp;cat_id=<{$subcategory.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYMANAGER}>">
+                        <img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg" width="1em" alt="edit">
+                    </a>
                 <{/if}>
-
-            </h4>
-
-            <div layout="row stretch p-4" class="forum-desc">
-                <{$forum.desc}>
             </div>
 
-            <{* ------- Activity Overview - Forums *}>
-            <footer layout="row center-justify p-2 my-4" class="activity">
+            <{if $subcategory.desc}>
+            <div layout="row stretch p-4" class="description">
+                <{$subcategory.desc}>
+            </div>
+            <{/if}>
+
+            <{* ------- Activity Overview - Subcategories *}>
+            <div layout="row center-justify" class="activity">
                 <div self="inline">
-                <{if $forum.isadminormod}>
-                <div self="px-2">
-                    <{include file="db:`$mydirname`_inc_moderators.html" target=$forum}>
-
-                    <a href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_FORUMMANAGER}>">
-                        <img class="svg edit-box" src="<{$xoops_url}>/images/icons/edit-box.svg"></a>
-                </div>
-                <{/if}>
-
-                <div><{$smarty.const._MD_D3FORUM_TOPICSCOUNT}> <span class="badge"><{$forum.topics_count}></span></div>
-                <div><{$smarty.const._MD_D3FORUM_POSTSCOUNT}> <span class="badge"><{$forum.posts_count}></span></div>
-                <{if $forum.last_post_time}>
-                <div><{$smarty.const._MD_D3FORUM_LASTPOST}> <span class="badge"><{$forum.last_post_time_formatted}></span>
-                    <a href="<{$mod_url}>/index.php?post_id=<{$forum.last_post_id}>" aria-label="<{$forum.last_post_subject}>">
-                        <img class="svg posticon" src="<{$xoops_url}>/images/icons/posticon<{$forum.last_post_icon}>.svg" alt="<{$forum.last_post_subject}>">
-                        <{if $forum.last_post_gname}>
-                        <span><{$forum.last_post_gname}></span>
-                        <{else}>
-                        <span><{$forum.last_post_uname}></span>
-                        <{/if}>
-                    </a>
-                </div>
-                <{/if}>
+                <div><{$smarty.const._MD_D3FORUM_TOTALTOPICSCOUNT}> <span class="badge"><{$subcategory.topics_count_in_tree}></span></div>
+                <div><{$smarty.const._MD_D3FORUM_TOTALPOSTSCOUNT}> <span class="badge"><{$subcategory.posts_count_in_tree}></span></div>
                 </div>
 
                 <{* RSS margin-right = negative 4x 0.25rem (mr-n4) *}>
-                <a self="" href="<{$mod_url}>/index.php?page=rss&amp;forum_id=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_FORUMRSS}>">
-                    <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg" alt="RSS">
+                <a href="<{$mod_url}>/index.php?page=rss&amp;cat_ids=<{$subcategory.id}>&amp;odr=1" aria-label="<{$smarty.const._MD_D3FORUM_LINK_CATEGORYRSS}>">
+                    <img class="svg" src="<{$xoops_url}>/images/icons/rss.svg" alt="RSS">
                 </a>
-            </footer>
-            <{* ------- /Activity Overview - Forums *}>
-
-            <div layout="row center-right">
-
-                <{if $forum.external_link_format}>
-                    <div self="left"> [<{$smarty.const._MD_D3FORUM_FORUMASCOMMENT}>] </div>
-                    <{elseif $forum.can_post}>
-                    <div self="right">
-                        <a class="button" href="<{$mod_url}>/index.php?page=newtopic&amp;forum_id=<{$forum.id}>">
-                            <{$smarty.const._MD_D3FORUM_POSTASNEWTOPIC}></a>
-                    </div>
-                <{/if}>
-
             </div>
-
-            <{/foreach}>
-
-        </article>
-
-        <{/if}>
+            <{* ------- /Activity Overview - Subcategories *}>
 
         </section>
+        <{/foreach}>
+    <{/if}>
+    <{* ----- /Subcategories *}>
 
-        <{* ----- /Forums List *}>
+
+
+    <{* ----- Forums List *}>
+
+    <{if $forums}>
+
+    <h4><{$smarty.const._MD_D3FORUM_FORUM}></h4>
+
+        <{foreach item=forum from=$forums}>
+        <section layout="column" class="category-forum">
+
+            <div layout="rows center-justify">
+                <h3>
+                    <a href="<{$mod_url}>/index.php?forum_id=<{$forum.id}>">
+                        <img class="svg forum" src="<{$xoops_url}>/images/icons/forum_<{$forum.bit_new}>.svg" alt="<{$forum.title}>">
+                        <{$forum.title}>
+                    </a>
+                </h3>
+                <{if $xoops_isadmin}>
+                <a href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_FORUMMANAGER}>">
+                    <img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg" width="1em" alt="edit"></a>
+                <{/if}>
+            </div>
+
+            <{if $forum.desc}>
+            <div layout="row" class="description">
+                <{$forum.desc}>
+            </div>
+            <{/if}>
+
+            <{* ------- Activity Overview - Forums *}>
+            <div layout="row center-justify sm-column" class="activity">
+                <div self="left sm-full">
+                <{if $forum.isadminormod}>
+                    <{include file="db:`$mydirname`_inc_moderators.html" target=$forum}>
+                    <a href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_FORUMMANAGER}>">
+                        <img class="svg edit" src="<{$xoops_url}>/images/icons/edit-box.svg" width="1em" alt="edit">
+                    </a>
+                <{/if}>
+
+                <{$smarty.const._MD_D3FORUM_TOPICSCOUNT}> <span class="badge"><{$forum.topics_count}></span>
+                <{$smarty.const._MD_D3FORUM_POSTSCOUNT}> <span class="badge"><{$forum.posts_count}></span>
+
+                <{if $forum.last_post_time}>
+                    <{$smarty.const._MD_D3FORUM_LASTPOST}> <span class="badge"><{$forum.last_post_time_formatted}></span>
+                    <a href="<{$mod_url}>/index.php?post_id=<{$forum.last_post_id}>" aria-label="<{$forum.last_post_subject}>">
+                        <img class="svg posticon" src="<{$xoops_url}>/images/icons/posticon<{$forum.last_post_icon}>.svg" alt="<{$forum.last_post_subject}>">
+                        <{if $forum.last_post_gname}>
+                            <span><{$forum.last_post_gname}></span>
+                        <{else}>
+                            <span><{$forum.last_post_uname}></span>
+                        <{/if}>
+                    </a>
+                <{/if}>
+                </div>
+                <{* RSS *}>
+                <a href="<{$mod_url}>/index.php?page=rss&amp;forum_id=<{$forum.id}>" aria-label="<{$smarty.const._MD_D3FORUM_LINK_FORUMRSS}>">
+                    <img class="svg rss" src="<{$xoops_url}>/images/icons/rss.svg" width="1em" alt="RSS">
+                </a>
+            </div>
+            <{* ------- /Activity Overview - Forums *}>
+
+                <div layout="row center-right">
+
+                    <{if $forum.external_link_format}>
+                        <div self="left"> [<{$smarty.const._MD_D3FORUM_FORUMASCOMMENT}>] </div>
+                        <{elseif $forum.can_post}>
+                        <div self="right">
+                            <a class="button" href="<{$mod_url}>/index.php?page=newtopic&amp;forum_id=<{$forum.id}>">
+                                <{$smarty.const._MD_D3FORUM_POSTASNEWTOPIC}></a>
+                        </div>
+                    <{/if}>
+
+                </div>
+        </section>
+        <{/foreach}>
+    <{/if}>
+    <{* ----- /Forums List *}>
+
+<hr>
+
+<{* ----- Category jump-box *}>
+<section layout="row center-right" name="jump-box" class="action-control">
+    <form name="category_jump_box" action="<{$mod_url}>/index.php" method="get">
+        <select name="cat_id">
+            <option value="">(<{$smarty.const._MD_D3FORUM_TOP}>)</option>
+            <{$cat_jumpbox_options}>
+        </select>
+        <button type="submit" class="button" value="<{$smarty.const._MD_D3FORUM_BTN_JUMPTOCATEGORY}>"><{$smarty.const._MD_D3FORUM_BTN_JUMPTOCATEGORY}></button>
+        <a class="button" href="<{$mod_url}>/index.php?page=search">
+            <img class="svg search" src="<{$xoops_url}>/images/icons/search.svg" width="1em" alt="search">
+            <{$smarty.const._MD_D3FORUM_LINK_ADVSEARCH}>
+        </a>
+    </form>
+</section>
 
 
 <hr>
@@ -243,25 +266,6 @@
     </ul>
 </div>
 
-
-
-
 <{* /////// NOTIFICATION \\\\\\\ *}>
 
 <{include file='db:legacy_notification_select.html'}>
-
-<hr>
-
-
-<{* ----- Category jump-box *}>
-<section name="jump-box">
-    <form name="category_jump_box" action="<{$mod_url}>/index.php" method="get">
-        <select name="cat_id">
-            <option value="">(<{$smarty.const._MD_D3FORUM_TOP}>)</option>
-            <{$cat_jumpbox_options}>
-        </select>
-        <button type="submit" class="button" value="<{$smarty.const._MD_D3FORUM_BTN_JUMPTOCATEGORY}>"><{$smarty.const._MD_D3FORUM_BTN_JUMPTOCATEGORY}></button>
-        <a class="button" href="<{$mod_url}>/index.php?page=search">
-            <img class="svg search" src="<{$xoops_url}>/images/icons/search.svg"> <{$smarty.const._MD_D3FORUM_LINK_ADVSEARCH}></a>
-    </form>
-</section>
