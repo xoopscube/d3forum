@@ -4,7 +4,7 @@
 
 
 <{* ////— ACTION-CONTROL —\\\\ *}>
-<section layout="row center-justify" class="action-control">
+<section data-layout="row center-justify" class="action-control">
 
     <div>
         <form method="get" action="index.php">
@@ -26,6 +26,14 @@
 
 
 <table class="d3forum_post_histories outer">
+    <thead>
+    <tr>
+        <th>time</th>
+        <th>Post</th>
+        <th>subject</th>
+        <th>Content</th>
+    </tr>
+    </thead>
 	<{foreach from=$histories item="history"}>
 		<tr class="<{cycle values="even,odd"}>">
 			<td><{$history.history_time_formatted}></td>
@@ -42,4 +50,4 @@
 	<{/foreach}>
 </table>
 
-<{$pagenavi}>
+<div class="pagenavi"><{$pagenavi}></div>
