@@ -1,98 +1,116 @@
-<!-- start module contents -->
+<{* Dev-Mode Toggle *}>
+<{if $xoops_isadmin}><div class="ui-dev-mode"><{$smarty.template}></div><{/if}>
+
 <{if $mod_config.show_breadcrumbs}>
-<div class="d3f_breadcrumbs"><a href="<{$mod_url}>/index.php"><{$smarty.const._MD_D3FORUM_TOP}></a>&nbsp;&gt;&nbsp;<{$smarty.const._MD_D3FORUM_CATEGORYMANAGER}></div>
+<nav aria-label="breadcrumb">
+    <ul>
+        <li><a href="<{$xoops_url}>/">
+            <img class="svg home" src="<{$xoops_url}>/images/icons/home.svg" width="1em" alt="home"></a>
+        <li><a href="<{$mod_url}>/index.php">
+        <img class="svg forum" src="<{$xoops_url}>/images/icons/forum_1.svg" width="1em" alt="forum"> <{$smarty.const._MD_D3FORUM_TOP}></a>
+        <li aria-current="page"><{$smarty.const._MD_D3FORUM_CATEGORYMANAGER}>
+    </ul>
+</nav>
 <{/if}>
 
-<h1 class="d3f_title"><{$smarty.const._MD_D3FORUM_CATEGORYMANAGER}></h1>
 
-<{if $xoops_isadmin}>
-	<p><a href="<{$mod_url}>/admin/index.php?page=category_access&amp;cat_id=<{$category.id}>"><{$smarty.const._MD_D3FORUM_LINK_CATEGORYACCESS}></a></p>
-<{/if}>
-
-<h2 class="d3f_head"><{$formtitle}></h2>
 <form name="categoryform" id="categoryform" action="<{$mod_url}>/index.php?page=<{$page}>&amp;cat_id=<{$category.id}>" method="post" onsubmit="return xoopsFormValidate_categoryform();">
+    <{$gticket_hidden}>
+
+    <article class="category-admin">
+
+        <h2><{$smarty.const._MD_D3FORUM_CATEGORYMANAGER}></h2>
+
+    <!-- Permissions -->
+    <{if $xoops_isadmin}>
+    <div class="grid-2">
+        <h4><{$formtitle}></h4>
+        <a role="button" class="outline" href="<{$mod_url}>/admin/index.php?page=category_access&amp;cat_id=<{$category.id}>">
+        <img class="svg lock" src="<{$xoops_url}>/images/icons/lock.svg" width="1em" alt="admin"> <{$smarty.const._MD_D3FORUM_LINK_CATEGORYACCESS}></a>
+    </div>
+    <{/if}>
 
 
-	<table class="outer d3f_form_table">
-		<tr style="display:none;">
-			<td><{$gticket_hidden}></td>
-		</tr>
+    <label for="category_title">
+        <{$smarty.const._MD_D3FORUM_TH_CATEGORYTITLE}>
+        <input type="text" name="title" id="category_title" size="42" maxlength="191" value="<{$category.title}>">
+    </label>
 
-		<tr valign="top" align="left">
-			<th class="d3f_head"><label for="category_title"><{$smarty.const._MD_D3FORUM_TH_CATEGORYTITLE}></label></th>
-			<td class="even">
-				<input type="text" name="title" id="category_title" size="50" maxlength="255" value="<{$category.title}>" />
-			</td>
-		</tr>
 
-		<tr valign="top" align="left">
-			<th class="d3f_head"><label for="category_desc"><{$smarty.const._MD_D3FORUM_TH_CATEGORYDESC}></label></th>
-			<td class="even">
-				<textarea name="desc" id="category_desc" cols="50" rows="10"><{$category.desc}></textarea>
-			</td>
-		</tr>
+    <label for="category_desc">
+        <{$smarty.const._MD_D3FORUM_TH_CATEGORYDESC}>
+        <textarea name="desc" id="category_desc" cols="50" rows="4"><{$category.desc}></textarea>
+    </label>
 
-		<tr valign="top" align="left">
-			<th class="d3f_head"><label for="category_pid"><{$smarty.const._MD_D3FORUM_TH_CATEGORYPARENT}></label></th>
-			<td class="even">
-				<select name="pid" id="category_pid">
-					<option value="">(<{$smarty.const._MD_D3FORUM_TOP}>)</option>
-					<{$cat_jumpbox_options}>
-				</select>
-			</td>
-		</tr>
 
-		<tr valign="top" align="left">
-			<th class="d3f_head"><label for="category_weight"><{$smarty.const._MD_D3FORUM_TH_CATEGORYWEIGHT}></label></th>
-			<td class="even">
-				<input type="text" name="weight" id="category_weight" size="4" maxlength="4" value="<{$category.weight}>" />
-			</td>
-		</tr>
+    <label for="category_pid">
+        <{$smarty.const._MD_D3FORUM_TH_CATEGORYPARENT}>
+        <select name="pid" id="category_pid">
+            <option value="">(<{$smarty.const._MD_D3FORUM_TOP}>)</option>
+            <{$cat_jumpbox_options}>
+        </select>
+    </label>
 
-		<tr valign="top" align="left">
-			<th class="d3f_head">
-				<{$smarty.const._MD_D3FORUM_TH_CATEGORYOPTIONS}>
-			</th>
-			<td class="even">
-				<input type="checkbox" id="category_option_controller_onoff" onclick="if(this.checked){xoopsGetElementById('category_option_controller').style.display='block';}else{xoopsGetElementById('category_option_controller').style.display='none';};"  <{if $category.options}>checked="checked"<{/if}> /><label for="category_option_controller_onoff"><{$smarty.const._MD_D3FORUM_ONOFF}></label>
-				<div id="category_option_controller" <{if ! $category.options}>style="display:none;"<{/if}>>
-					<textarea name="options" id="category_options" cols="50" rows="10"><{$category.options}></textarea>
-					<br />
-					<{$smarty.const._MD_D3FORUM_HOWTO_OVERRIDEOPTIONS}>:
-					<br />
-					<span class="categoryoptiondesc"><{$category.option_desc}></span>
-				</div>
-			</td>
-		</tr>
 
-		<tr valign="top" align="left">
-			<th class="d3f_head">
-				<{$smarty.const._MD_D3FORUM_CHILDREN_COUNT}>
-			</th>
-			<td class="even">
-				<{$children_count}>
-			</td>
-		</tr>
+    <label for="category_weight">
+        <{$smarty.const._MD_D3FORUM_TH_CATEGORYWEIGHT}>
+        <input type="text" name="weight" id="category_weight" size="4" maxlength="4" value="<{$category.weight}>">
+    </label>
 
-		<tr valign="top" align="left">
-			<th class="d3f_head">
-				<{$smarty.const._MD_D3FORUM_BATCH_ACTIONS}>
-			</th>
-			<td class="even">
-				<input type="checkbox" name="batch_action_turnsolvedon" id="batch_action_turnsolvedon" value="1" onclick="if(this.checked){alert('<{$smarty.const._MD_D3FORUM_BA_MSG_CONFIRM}>');}" /><label for="batch_action_turnsolvedon"><{$smarty.const._MD_D3FORUM_BA_TURNSOLVEDON}></label>
-			</td>
-		</tr>
+    <fieldset>
+        <label>
+            <span class="badge"><{$children_count|default:"0"}></span>
+            <{$smarty.const._MD_D3FORUM_CHILDREN_COUNT}>
+        </label>
+    </fieldset>
 
-	</table>
+    <{* ----- CATEGORY BATCH ACTION *}>
+    <fieldset>
+        <h5><{$smarty.const._MD_D3FORUM_BATCH_ACTIONS}></h5>
+        <label for="batch_action_turnsolvedon">
+            <input type="checkbox" name="batch_action_turnsolvedon" id="batch_action_turnsolvedon" value="1" onclick="if(this.checked){alert('<{$smarty.const._MD_D3FORUM_BA_MSG_CONFIRM}>');}">
+            <img class="svg topic-solved" src="<{$xoops_url}>/images/icons/topic_status_solved1.svg" width="1em">
+            <{$smarty.const._MD_D3FORUM_BA_TURNSOLVEDON}>
+        </label>
+    </fieldset>
 
-<p class="d3f_submit"><input type="submit" name="categoryman_post" value="<{$smarty.const._SUBMIT}>" />
-<{if $page == 'categorymanager' && $children_count == 0}>
-<input type="submit" name="categoryman_delete" value="<{$smarty.const._DELETE}>" onclick="return confirm('<{$smarty.const._MD_D3FORUM_MSG_CONFIRMDELETERECURSIVE}>')" />
-<{/if}></p>
+    <{* ----- CATEGORY OPTIONS *}>
+    <fieldset>
+        <h5><{$smarty.const._MD_D3FORUM_TH_CATEGORYOPTIONS}></h5>
+        <label for="category_option_controller_onoff">
+            <input type="checkbox" id="category_option_controller_onoff"
+                   onclick="if(this.checked){xoopsGetElementById('category_option_controller').style.display='block';}else{xoopsGetElementById('category_option_controller').style.display='none';};"
+            <{if $category.options}>checked="checked"<{/if}>>
+            <{$smarty.const._MD_D3FORUM_ONOFF}>
+        </label>
+
+        <div id="category_option_controller" <{if !$category.options}>style="display:none;"<{/if}> name="options">
+            <textarea name="options" id="category_options" cols="50" rows="5"><{$category.options}></textarea>
+            <{* CUSTOM HTML <p> language *}>
+            <{$smarty.const._MD_D3FORUM_HOWTO_OVERRIDEOPTIONS}>
+            <code class="category_option_desc"><{$category.option_desc}></code>
+        </div>
+
+    </fieldset>
+    <{* ----- /CATEGORY OPTIONS *}>
+
+
+    <footer>
+        <div class="grid-2">
+        <{if $page == 'categorymanager' && $children_count == 0}>
+        <button type="submit" role="button" class="outline secondary delete" name="categoryman_delete" value="<{$smarty.const._DELETE}>" onclick="return confirm('<{$smarty.const._MD_D3FORUM_MSG_CONFIRMDELETERECURSIVE}>')">
+            <img class="svg delete" src="<{$xoops_url}>/images/icons/delete.svg" width="1em" alt="delete"> <{$smarty.const._DELETE}></button>
+        <{/if}>
+        <button type="submit" role="button" class="primary" name="categoryman_post" value="<{$smarty.const._SUBMIT}>">
+            <img class="svg check" src="<{$xoops_url}>/images/icons/check.svg" width="1em" alt="check"> <{$smarty.const._SUBMIT}>
+        </button>
+        </div>
+    </footer>
+</article>
 
 </form>
 
-<!-- Start Form Vaidation JavaScript //-->
+<{* Start Form Vaidation JavaScript *}>
 <script type="text/javascript">
 <!--//
 function xoopsFormValidate_categoryform() {
@@ -101,6 +119,4 @@ function xoopsFormValidate_categoryform() {
 	return true;
 }
 //--></script>
-<!-- End Form Vaidation JavaScript //-->
-
-<!-- end module contents -->
+<{* End Form Vaidation JavaScript *}>

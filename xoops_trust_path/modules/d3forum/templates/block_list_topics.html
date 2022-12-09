@@ -1,5 +1,8 @@
+<{* Dev-Mode Toggle *}>
+<{if $xoops_isadmin}><div class="ui-dev-mode"><{$smarty.template}></div><{/if}>
+
 <{if $block.full_view == true}>
-<table class="outer" cellspacing="1">
+<table class="outer">
 <thead>
 <tr>
 	<th><{$block.lang_forum}></th>
@@ -10,9 +13,12 @@
 </tr>
 </thead>
 <{foreach item=topic from=$block.topics}>
+
+
 <{strip}>
-<tr class="<{cycle values="even,odd"}>">
-	<td><a href="<{$block.mod_url}>/index.php?forum_id=<{$topic.forum_id}>"><{$topic.forum_title}></a></td>
+<tr>
+	<td><div style="background:<{cycle name='topicolor' values='#ccdb38,#a676b8,#fe7e17'}>;height:20px;width:10px;">C</div>
+        <a href="<{$block.mod_url}>/index.php?forum_id=<{$topic.forum_id}>"><{$topic.forum_title}></a></td>
 	<td>
 	<{if $block.current_topic_id == $topic.id}>
     <span class="d3f_currenttopic">
@@ -30,50 +36,54 @@
     <{* <{/if}> *}>
 	<{/if}>
 
-	<{if $topic.u2t_marked}><img src="<{$block.mod_imageurl}>/block_marked.gif" alt="<{$block.lang_alt_marked}>" /><{/if}>
+	<{if $topic.u2t_marked}><img src="<{$block.mod_imageurl}>/block_marked.gif" alt="<{$block.lang_alt_marked}>"><{/if}>
 	<{* displays the last post's subject or topic title *}>
-	<{if $block.disp_last_subject }>
-	<{$topic.last_subject}>
-	<{else}>
-	<{$topic.title}>
-	<{/if}>
+		<{if $block.disp_last_subject}>
+			<{$topic.last_subject}>
+		<{else}>
+			<{$topic.title}>
+		<{/if}>
 	<{if $block.current_topic_id == $topic.id}></span><{else}></a><{/if}>
-	<{if ! $topic.solved}><img src="<{$block.mod_imageurl}>/block_unsolved.gif" alt="<{$block.lang_alt_unsolved}>" /><{/if}></td>
-	<td align="center"><{$topic.replies}></td>
-	<td align="center"><{$topic.views}></td>
-	<td align="center" nowrap="nowrap">
+	<{if !$topic.solved}>
+<!--		<img src="<{$block.mod_imageurl}>/block_unsolved.gif" alt="<{$block.lang_alt_unsolved}>">-->
+		<img class="svg" src="<{$xoops_url}>/images/icons/topic_status_solved0.svg" alt="<{$block.lang_alt_unsolved}>">
+		<{/if}>
+	</td>
+	<td><{$topic.replies}></td>
+	<td><{$topic.views}></td>
+	<td nowrap="nowrap">
 	<{if $topic.guest_name}>
 		<{$topic.guest_name}>
 	<{else}>
 		<{$topic.last_uname}>
 	<{/if}>
 </td>
-	<td align="right" nowrap="nowrap"><{$topic.last_post_time_formatted}></td>
+	<td nowrap="nowrap"><{$topic.last_post_time_formatted}></td>
 </tr>
 <{/strip}>
 <{/foreach}>
 </table>
 
-<div style="text-align:right; padding: 5px;">
-<a href="<{$block.mod_url}>/index.php?page=search"><{$block.lang_linktosearch}></a>
+<div>
+<a class="button" href="<{$block.mod_url}>/index.php?page=search"><{$block.lang_linktosearch}></a>
 &nbsp;
-<{if is_numeric( $block.forums ) }>
-<a href="<{$block.mod_url}>/index.php?forum_id=<{$block.forums}>"><{$block.lang_linktolisttopics}></a>
+<{if is_numeric($block.forums)}>
+<a class="button" href="<{$block.mod_url}>/index.php?forum_id=<{$block.forums}>"><{$block.lang_linktolisttopics}></a>
 <{else}>
-<a href="<{$block.mod_url}>/index.php?cat_ids=<{$block.categories}>"><{$block.lang_linktolisttopics}></a>
+<a class="button" href="<{$block.mod_url}>/index.php?cat_ids=<{$block.categories}>"><{$block.lang_linktolisttopics}></a>
 <{/if}>
 &nbsp;
-<{if is_numeric( $block.categories ) }>
-<a href="<{$block.mod_url}>/index.php?cat_id=<{$block.categories}>"><{$block.lang_linktolistforums}></a>
+<{if is_numeric($block.categories)}>
+<a class="button" href="<{$block.mod_url}>/index.php?cat_id=<{$block.categories}>"><{$block.lang_linktolistforums}></a>
 &nbsp;
 <{/if}>
-<a href="<{$block.mod_url}>/index.php"><{$block.lang_linktolistcategories}></a>
+<a class="button" href="<{$block.mod_url}>/index.php"><{$block.lang_linktolistcategories}></a>
 </div>
 
 
 <{else}>
 
-<ol style="padding:3px;margin:0;" class="d3f_eachbranch">
+<ol class="d3f_eachbranch">
 <{foreach item=topic from=$block.topics}>
 	<li<{if $block.current_topic_id == $topic.id}> class="d3f_currenttopic d3f_block_currenttopic"<{/if}>>
 	<{if $block.current_topic_id != $topic.id}>
@@ -88,7 +98,7 @@
     <{else}> *}>
         <span><a href="<{$block.mod_url}>/index.php?topic_id=<{$topic.id}>#post_id<{$topic.last_post_id}>">
     <{* <{/if}> *}>
-    <{$topic.title}></a>(<{$topic.replies}>) 
+    <{$topic.title}></a>(<{$topic.replies}>)
     <{else}>
     <span><{$topic.title}>(<{$topic.replies}>)
     <{/if}>

@@ -42,10 +42,11 @@ define($constpref.'_ADMENU_MYPREFERENCES','Préférences');
 
 // configurations
 define($constpref.'_TOP_MESSAGE','Message en-tête du forum');
-define($constpref.'_TOP_MESSAGEDEFAULT','<h1 class="d3f_title">Forum Top</h1><p class="d3f_welcome">Pour consulter les messages, choisissez la catégorie et le forum que vous voulez visiter ci-dessous. </p>');
+define($constpref.'_TOP_MESSAGEDEFAULT','<h2 class="d3f_title">Forum Top</h2><p class="d3f_welcome">Pour consulter les messages, choisissez la catégorie et le forum que vous voulez visiter ci-dessous. </p>');
 define($constpref.'_SHOW_BREADCRUMBS','Afficher la navigation (breadcrumbs)');
+define($constpref.'_SHOW_RSS','Afficher le lien RSS');
 define($constpref.'_DEFAULT_OPTIONS','Options cochées par défault dans le formulaire pour poster');
-define($constpref.'_DEFAULT_OPTIONSDSC','Lister les options a cocher  séparées par  une virgule (,).<br />eg) smiley,xcode,br,number_entity<br />Vous pouvez ajouter ces options: special_entity html attachsig u2t_marked');
+define($constpref.'_DEFAULT_OPTIONSDSC','Lister les options a cocher  séparées par  une virgule (,).<br>eg) smiley,xcode,br,number_entity<br>Vous pouvez ajouter ces options: special_entity html attachsig u2t_marked');
 define($constpref.'_ALLOW_HTML','Autoriser HTML');
 define($constpref.'_ALLOW_HTMLDSC','N\'activez pas cette option au hazard. Ceci peut rendre votre site vulnérable et permettre à un utilisateur malveillant \'insérer d\'un script.');
 define($constpref.'_ALLOW_TEXTIMG','Autoriser l\'affichage d\'images externes dans les messages');
@@ -144,5 +145,3 @@ define($constpref.'_NOTIFY_GLOBAL_WAITINGCAP', 'Informez-moi de nouveaux message
 define($constpref.'_NOTIFY_GLOBAL_WAITINGSBJ', '[{X_SITENAME}] {X_MODULE}: Nouveau message en attente');
 
 }
-
-?>
