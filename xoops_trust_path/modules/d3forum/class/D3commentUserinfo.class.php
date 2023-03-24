@@ -3,25 +3,26 @@
  * D3Forum module for XCL
  * Sample class for d3forum comment integration
  * @package    D3Forum
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
+ * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2023 Authors
+ * @license    GPL v2.0
  */
 
 
 class D3commentUserinfo extends D3commentAbstract {
 	// get reference description as string
 	public function fetchDescription( $link_id ) {
-		$user_handler =& xoops_gethandler( 'user' );
-		$user         =& $user_handler->get( $link_id );
+		$user_handler = xoops_gethandler( 'user' );
+		$user         = $user_handler->get( $link_id );
 		if ( is_object( $user ) ) {
 			return '
 			<table class="outer">
 				<tr>
-					<td style="width:20%;" class="head">' . _MD_D3FORUM_LINK_COMMENTSOURCE . '
-					<td class="even"><a href="' . XOOPS_URL . '/userinfo.php?uid=' . $link_id . '">' . $user->getVar( 'uname' ) . '</a></td>
+					<td style="width:20%;">' . _MD_D3FORUM_LINK_COMMENTSOURCE . '
+					<td><a href="' . XOOPS_URL . '/userinfo.php?uid=' . $link_id . '">' . $user->getVar( 'uname' ) . '</a></td>
 				</tr>
 			</table>
 		';
@@ -35,8 +36,8 @@ class D3commentUserinfo extends D3commentAbstract {
 
 	// get reference information as array
 	public function fetchSummary( $link_id ) {
-		$user_handler =& xoops_gethandler( 'user' );
-		$user         =& $user_handler->get( $link_id );
+		$user_handler = xoops_gethandler( 'user' );
+		$user         = $user_handler->get( $link_id );
 		if ( is_object( $user ) ) {
 			return [
 				'module_name' => '',
@@ -58,8 +59,8 @@ class D3commentUserinfo extends D3commentAbstract {
 	public function validate_id( $link_id ) {
 		$link_id = (int) $link_id;
 
-		$user_handler =& xoops_gethandler( 'user' );
-		$user         =& $user_handler->get( $link_id );
+		$user_handler = xoops_gethandler( 'user' );
+		$user         = $user_handler->get( $link_id );
 		if ( is_object( $user ) ) {
 			return $link_id;
 		}

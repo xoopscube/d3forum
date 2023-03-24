@@ -2,11 +2,12 @@
 /**
  * D3Forum module for XCL
  * @package    D3Forum
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
+ * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2023 Authors
+ * @license    GPL v2.0
  */
 
 require_once dirname( __DIR__ ) . '/include/main_functions.php';
@@ -14,10 +15,9 @@ require_once dirname( __DIR__ ) . '/include/common_functions.php';
 require_once dirname( __DIR__ ) . '/class/d3forum.textsanitizer.php';
 require_once dirname( __DIR__ ) . '/class/gtickets.php';
 
-$myts =& D3forumTextSanitizer::sGetInstance();
+$myts =D3forumTextSanitizer::sGetInstance();
 
-//$db =& Database::getInstance();
-$db = &XoopsDatabaseFactory::getDatabaseConnection();
+$db = XoopsDatabaseFactory::getDatabaseConnection();
 
 // get right $cat_id
 $cat_id = (int) @$_GET['cat_id'];
@@ -103,7 +103,7 @@ if ( ! empty( $_POST['user_update'] ) && empty( $invaild_cat_id ) ) {
 		}
 	}
 
-	$member_hander =& xoops_gethandler( 'member' );
+	$member_hander = xoops_gethandler( 'member' );
 
 	if ( is_array( @$_POST['new_uids'] ) ) {
 
@@ -120,7 +120,7 @@ if ( ! empty( $_POST['user_update'] ) && empty( $invaild_cat_id ) ) {
 				[ $user ] = $member_handler->getUsers( $criteria );
 
 			} else {
-				$user =& $member_handler->getUser( (int) $uid );
+				$user = $member_handler->getUser( (int) $uid );
 			}
 			if ( is_object( $user ) ) {
 				$db->query( 'INSERT INTO '
@@ -149,9 +149,9 @@ while ( list( $id, $title, $depth ) = $db->fetchRow( $crs ) ) {
 
 
 // create group form
-$group_handler =& xoops_gethandler( 'group' );
+$group_handler = xoops_gethandler( 'group' );
 
-$groups =& $group_handler->getObjects();
+$groups = $group_handler->getObjects();
 
 $group_trs = '';
 
@@ -186,8 +186,7 @@ foreach ( $groups as $group ) {
 	$is_moderator_checked       = $is_moderator ? "checked='checked'" : '';
 	$can_makeforum_checked      = $can_makeforum ? "checked='checked'" : '';
 
-	$group_trs .= '
-		<tr>
+	$group_trs .= '<tr class="list_center">
 			<td>' . $group->getVar( 'name' ) . "</td>
 			<td><input type='checkbox' name='can_reads[$gid]' id='gcol_1_{$gid}' value='1' $can_read_checked></td>
 			<td><input type='checkbox' name='can_posts[$gid]' id='gcol_2_{$gid}' value='1' $can_post_checked></td>
@@ -221,7 +220,7 @@ while ( list( $uid, $uname, $can_post, $can_edit, $can_delete, $post_auto_approv
 	$can_makeforum_checked      = $can_makeforum ? "checked='checked'" : '';
 
 	$user_trs .= "
-		<tr>
+		<tr class='list_center'>
 			<td>$uid</td>
 			<td>$uname4disp</td>
 			<td><input type='checkbox' name='can_reads[$uid]' id='ucol_1_{$uid}' value='1' checked='checked'></td>
@@ -241,7 +240,7 @@ $newuser_trs = '';
 for ( $i = 0; $i < 5; $i ++ ) {
 
 	$newuser_trs .= "
-		<tr class='head'>
+		<tr class='list_center'>
 			<td><input type='text' size='4' name='new_uids[$i]' value=''></th>
 			<td><input type='text' size='12' name='new_unames[$i]' value=''></th>
 			<td><input type='checkbox' name='new_can_reads[$i]' id='ncol_1_{$i}' checked='checked' disabled='disabled'></th>

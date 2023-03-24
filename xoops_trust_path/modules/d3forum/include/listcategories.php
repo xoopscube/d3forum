@@ -3,11 +3,12 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
+ * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2023 Authors
+ * @license    GPL v2.0
  */
 
 // count total topics
@@ -22,7 +23,7 @@ $sql = 'SELECT COUNT(*) FROM ' . $db->prefix( $mydirname . '_posts' );
 
 // get last visit
 if ( $uid > 0 ) {
-	$db = &XoopsDatabaseFactory::getDatabaseConnection();
+	$db = XoopsDatabaseFactory::getDatabaseConnection();
 
 	$lv_result = $db->query( 'SELECT MAX(u2t_time) FROM ' . $db->prefix( $mydirname . '_users2topics' ) . " WHERE uid='$uid'" );
 

@@ -3,11 +3,12 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
+ * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2023 Authors
+ * @license    GPL v2.0
  */
 
 // can_vote
@@ -27,8 +28,8 @@ if ( $post_row['invisible'] || ! $post_row['approval'] ) {
 }
 
 // get this poster's object
-$user_handler =& xoops_gethandler( 'user' );
-$poster_obj   =& $user_handler->get( (int) $post_row['uid'] );
+$user_handler = xoops_gethandler( 'user' );
+$poster_obj   = $user_handler->get( (int) $post_row['uid'] );
 if ( is_object( $poster_obj ) ) {
 	// active user's post
 	// naao from

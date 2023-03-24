@@ -2,11 +2,12 @@
 /**
  * mymenu for D3 modules always require altsys
  * @package    D3Forum
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
+ * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2023 Author
+ * @license    GPL v2.0
  */
 
 // Deny direct access
@@ -44,7 +45,7 @@ if ( file_exists( XOOPS_TRUST_PATH . '/libs/altsys/myblocksadmin.php' ) ) {
 }
 
 // Preferences
-$config_handler =& xoops_gethandler( 'config' );
+$config_handler = xoops_gethandler( 'config' );
 if ( count( $config_handler->getConfigs( new Criteria( 'conf_modid', $xoopsModule->mid() ) ) ) > 0 ) {
 	$adminmenu[] = [
 		'title' => _PREFERENCES,
