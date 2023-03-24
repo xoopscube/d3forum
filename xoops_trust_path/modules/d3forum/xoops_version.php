@@ -2,12 +2,12 @@
 /**
  * D3Forum module for XCL
  * @package    D3Forum
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Naoki Sawada (aka Nao-pon)
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2023 Authors
+ * @license    GPL v2.0
  */
 
 // language file (modinfo.php)
@@ -27,9 +27,9 @@ $constpref = '_MI_' . strtoupper( $mydirname );
 // Manifesto
 $modversion['dirname']          = $mydirname;
 $modversion['trust_dirname']    = $mytrustdirname;
-$modversion['name']             = constant( $constpref . '_NAME' );
-$modversion['version']          = '2.32';
-$modversion['detailed_version'] = '2.32.1';
+$modversion['name']             = $mydirname; //constant( $constpref . '_NAME' );
+$modversion['version']          = '2.33';
+$modversion['detailed_version'] = '2.33.0';
 $modversion['description']      = constant( $constpref . '_DESC' );
 $modversion['author']           = 'Gijoe (peak.ne.jp) and Jidaikbo, @nao-pon Naoki Sawada';
 $modversion['credits']          = '@domifara, @naao Naoki Okino, @nao-pon Naoki Sawada, @gigamaster (XCL/PHP7)';
@@ -321,7 +321,7 @@ $modversion['config'][] = [
     'description' => $constpref . '_POSTS_PER_TOPICDSC',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
-    'default'     => 25,
+    'default'     => 20,
     'options'     => []
 ];
 $modversion['config'][] = [

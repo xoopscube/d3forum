@@ -5,7 +5,7 @@
 
 
 <{* ////— ACTION-CONTROL —\\\\ *}>
-<section data-layout="row center-justify" class="action-control">
+<section data-layout="rows center-justify" class="action-control">
 
     <div>
         <form name="selectforum" action="<{$mod_url}>/admin/index.php" method="get">
@@ -17,11 +17,9 @@
     </div>
 
     <div class="control-view">
-        <a class="button" href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum_id}>"><{$smarty.const._EDIT}></a>
+        <a class="button" href="<{$mod_url}>/index.php?page=forummanager&amp;forum_id=<{$forum_id}>"><i class="i-edit"></i><{$smarty.const._EDIT}></a>
 
-        <button class="help-admin button" type='button' data-id="4" data-module="<{$mydirname}>" data-help-article="#help-forum-start" aria-label="<{$smarty.const._HELP}>">
-            <b>?</b>
-        </button>
+        <button class="help-admin button" type='button' data-id="4" data-module="<{$mydirname}>" data-help-article="#help-forum-start" aria-label="<{$smarty.const._HELP}>"><i class="i-help"></i></button>
     </div>
 
 </section>
@@ -29,7 +27,7 @@
 
 
 <{* group form *}>
-<h3 class="head"><{$smarty.const._MD_A_D3FORUM_H2_GROUPPERMS}></h3>
+<h3><{$smarty.const._MD_A_D3FORUM_H2_GROUPPERMS}></h3>
 
 <form name="groupperms" action="<{$mod_url}>/admin/index.php?page=forum_access&amp;forum_id=<{$forum_id}>" method="post" style="margin:20px 0px">
 	<{$gticket_hidden}>
@@ -78,7 +76,7 @@
 
 
 <{* user form *}>
-<h3 class="head"><{$smarty.const._MD_A_D3FORUM_H2_USERPERMS}></h3>
+<h3><{$smarty.const._MD_A_D3FORUM_H2_USERPERMS}></h3>
 <div class="tips"><{$smarty.const._MD_A_D3FORUM_NOTICE_ADDUSERS}></div>
 
 <form name="userperms" action="<{$mod_url}>/admin/index.php?page=forum_access&amp;forum_id=<{$forum_id}>" method="post" style="margin:20px 0px">

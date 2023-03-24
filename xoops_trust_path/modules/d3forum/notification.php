@@ -3,10 +3,11 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
+ * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
+ * @copyright  (c) 2005-2023 Authors
  * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
  */
 
@@ -18,11 +19,11 @@ if ( ! function_exists( 'd3forum_notify_base' ) ) {
 
 		include_once __DIR__ . '/include/common_functions.php';
 
-		$db = &XoopsDatabaseFactory::getDatabaseConnection();
+		$db = XoopsDatabaseFactory::getDatabaseConnection();
 
-		$module_handler =& xoops_gethandler( 'module' );
+		$module_handler = xoops_gethandler( 'module' );
 
-		$module =& $module_handler->getByDirname( $mydirname );
+		$module = $module_handler->getByDirname( $mydirname );
 
 		if ( 'global' == $category ) {
 			$item['name'] = '';

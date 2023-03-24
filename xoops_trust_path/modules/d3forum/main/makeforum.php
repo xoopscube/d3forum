@@ -3,11 +3,12 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
+ * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2023 Authors
+ * @license    GPL v2.0
  */
 
 include dirname( __DIR__ ) . '/include/common_prepend.php';
@@ -51,7 +52,7 @@ if ( isset( $_POST['forumman_post'] ) ) {
 	];
 
 	// Notify for new forum
-	$notification_handler =& xoops_gethandler( 'notification' );
+	$notification_handler = xoops_gethandler( 'notification' );
 
 	$users2notify = d3forum_get_users_can_read_forum( $mydirname, $forum_id, $cat_id );
 

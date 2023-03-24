@@ -2,11 +2,12 @@
 /**
  * D3Forum module for XCL
  * @package    D3Forum
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
+ * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2023 Authors
+ * @license    GPL v2.0
  */
 
 require_once dirname( __DIR__ ) . '/include/main_functions.php';
@@ -14,10 +15,9 @@ require_once dirname( __DIR__ ) . '/include/common_functions.php';
 require_once dirname( __DIR__ ) . '/class/d3forum.textsanitizer.php';
 require_once dirname( __DIR__ ) . '/class/gtickets.php';
 
-$myts =& D3forumTextSanitizer::sGetInstance();
+$myts = D3forumTextSanitizer::sGetInstance();
 
-//$db =& Database::getInstance();
-$db = &XoopsDatabaseFactory::getDatabaseConnection();
+$db = XoopsDatabaseFactory::getDatabaseConnection();
 
 // get right $forum_id
 $forum_id = (int) @$_GET['forum_id'];
@@ -103,7 +103,7 @@ if ( ! empty( $_POST['user_update'] ) && empty( $invaild_forum_id ) ) {
 		}
 	}
 
-	$member_hander =& xoops_gethandler( 'member' );
+	$member_hander = xoops_gethandler( 'member' );
 
 	if ( is_array( @$_POST['new_uids'] ) ) {
 
@@ -118,7 +118,7 @@ if ( ! empty( $_POST['user_update'] ) && empty( $invaild_forum_id ) ) {
 				$criteria = new Criteria( 'uname', addslashes( @$_POST['new_unames'][ $i ] ) );
 				[ $user ] = $member_handler->getUsers( $criteria );
 			} else {
-				$user =& $member_handler->getUser( (int) $uid );
+				$user = $member_handler->getUser( (int) $uid );
 			}
 			if ( is_object( $user ) ) {
 				$db->query( 'INSERT INTO ' . $db->prefix( $mydirname . '_forum_access' ) . " SET forum_id=$forum_id, uid=" . $user->getVar( 'uid' ) . ", can_post=$can_post, can_edit=$can_edit, can_delete=$can_delete, post_auto_approved=$post_auto_approved, is_moderator=$is_moderator" );
@@ -136,9 +136,9 @@ if ( ! empty( $_POST['user_update'] ) && empty( $invaild_forum_id ) ) {
 //
 
 // create group form
-$group_handler =& xoops_gethandler( 'group' );
+$group_handler = xoops_gethandler( 'group' );
 
-$groups =& $group_handler->getObjects();
+$groups = $group_handler->getObjects();
 
 $group_trs = '';
 
@@ -163,14 +163,14 @@ foreach ( $groups as $group ) {
 	$is_moderator_checked       = $is_moderator ? "checked='checked'" : '';
 
 	$group_trs .= "
-		<tr>
-			<td class='even'>" . $group->getVar( 'name' ) . "</td>
-			<td class='even'><input type='checkbox' name='can_reads[$gid]' id='gcol_1_{$gid}' value='1' $can_read_checked></td>
-			<td class='even'><input type='checkbox' name='can_posts[$gid]' id='gcol_2_{$gid}' value='1' $can_post_checked></td>
-			<td class='even'><input type='checkbox' name='can_edits[$gid]' id='gcol_3_{$gid}' value='1' $can_edit_checked></td>
-			<td class='even'><input type='checkbox' name='can_deletes[$gid]' id='gcol_4_{$gid}' value='1' $can_delete_checked></td>
-			<td class='even'><input type='checkbox' name='post_auto_approveds[$gid]' id='gcol_5_{$gid}' value='1' $post_auto_approved_checked></td>
-			<td class='even'><input type='checkbox' name='is_moderators[$gid]' id='gcol_6_{$gid}' value='1' $is_moderator_checked></td>
+		<tr class='list_center'>
+			<td>" . $group->getVar( 'name' ) . "</td>
+			<td><input type='checkbox' name='can_reads[$gid]' id='gcol_1_{$gid}' value='1' $can_read_checked></td>
+			<td><input type='checkbox' name='can_posts[$gid]' id='gcol_2_{$gid}' value='1' $can_post_checked></td>
+			<td><input type='checkbox' name='can_edits[$gid]' id='gcol_3_{$gid}' value='1' $can_edit_checked></td>
+			<td><input type='checkbox' name='can_deletes[$gid]' id='gcol_4_{$gid}' value='1' $can_delete_checked></td>
+			<td><input type='checkbox' name='post_auto_approveds[$gid]' id='gcol_5_{$gid}' value='1' $post_auto_approved_checked></td>
+			<td><input type='checkbox' name='is_moderators[$gid]' id='gcol_6_{$gid}' value='1' $is_moderator_checked></td>
 		</tr>\n";
 }
 
@@ -195,7 +195,7 @@ while ( list( $uid, $uname, $can_post, $can_edit, $can_delete, $post_auto_approv
 	$is_moderator_checked       = $is_moderator ? "checked='checked'" : '';
 
 	$user_trs .= "
-		<tr>
+		<tr class='list_center'>
 			<td>$uid</td>
 			<td>$uname4disp</td>
 			<td><input type='checkbox' name='can_reads[$uid]' id='ucol_1_{$uid}' value='1' checked='checked'></td>
@@ -214,7 +214,7 @@ $newuser_trs = '';
 for ( $i = 0; $i < 5; $i ++ ) {
 
 	$newuser_trs .= "
-		<tr class='head'>
+		<tr class='list_center'>
 			<td><input type='text' size='4' name='new_uids[$i]' value=''></th>
 			<td><input type='text' size='12' name='new_unames[$i]' value=''></th>
 			<td><input type='checkbox' name='new_can_reads[$i]' id='ncol_1_{$i}' checked='checked' disabled='disabled'></th>
