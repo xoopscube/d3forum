@@ -3,11 +3,11 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -82,7 +82,9 @@ function d3forum_display_comment_topicscount( $mydirname, $forum_id, $params, $m
 
 // old interface
 function d3forum_display_comment( $mydirname, $forum_id, $params ) {
-	global $xoopsUser, $xoopsConfig, $xoopsModule;
+	$m_params = [];
+ $obj = null;
+ global $xoopsUser, $xoopsConfig, $xoopsModule;
 
 	// check the d3forum exists and is active
 	$module_hanlder = xoops_gethandler( 'module' );
@@ -184,7 +186,17 @@ function d3forum_display_comment( $mydirname, $forum_id, $params ) {
 
 
 function d3forum_render_comments( $mydirname, $forum_id, $params, &$smarty ) {
-	global $xoopsUser, $xoopsConfig, $xoopsModule;
+	$forum_row = [];
+ $isadminormod = null;
+ $uid = null;
+ $myts = null;
+ $poster_regdate = null;
+ $xoopsModuleConfigs = [];
+ $topic_hits = null;
+ $odr_options = null;
+ $solved_options = null;
+ $forum4assign = [];
+ global $xoopsUser, $xoopsConfig, $xoopsModule;
 
 	$mydirpath = XOOPS_ROOT_PATH . '/modules/' . $mydirname;
 
@@ -364,7 +376,7 @@ function d3forum_render_comments( $mydirname, $forum_id, $params, &$smarty ) {
 		$pagenav = '';
 
 		// LIMIT
-		$num = $params['posts_num'] < 5 ? 5 : (int) $params['posts_num'];
+		$num = $params['posts_num'] < 5 ? 5 : $params['posts_num'];
 
 		$pos = 0;
 

@@ -22,7 +22,7 @@
         <a class="button" href="<{$mod_url}>/index.php?page=makecategory&amp;cat_id=<{$cat_id}>"><i class="i-add"></i><{$smarty.const._MD_D3FORUM_LINK_MAKESUBCATEGORY}></a>
         <a class="button" href="<{$mod_url}>/index.php?page=makeforum&amp;cat_id=<{$cat_id}>"><i class="i-add"></i><{$smarty.const._MD_D3FORUM_LINK_MAKEFORUM}></a>
 
-        <button class="help-admin button" type="button" data-id="4" data-module="<{$mydirname}>" data-help-article="#help-forum-start" aria-label="<{$smarty.const._HELP}>"><b>?</b></button>
+        <button class="help-admin button-icon" type="button" data-module="<{$mydirname}>" data-help-article="#help-forum-usage" title="<{$smarty.const._HELP}>"><b>?</b></button>
     </div>
 
 </section>
@@ -80,7 +80,7 @@
 
 <{* user form *}>
 <h3><{$smarty.const._MD_A_D3FORUM_H2_USERPERMS}></h3>
-<div class="tips"><{$smarty.const._MD_A_D3FORUM_NOTICE_ADDUSERS}></div>
+<div class="help-tips"><{$smarty.const._MD_A_D3FORUM_NOTICE_ADDUSERS}></div>
 
 <form name="userperms" action="<{$mod_url}>/admin/index.php?page=category_access&amp;cat_id=<{$cat_id}>" method="post">
 	<{$gticket_hidden}>

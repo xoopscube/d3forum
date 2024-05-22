@@ -3,10 +3,10 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -20,7 +20,7 @@ if ( XOOPS_URL == $xoops_cookie_path ) {
 }
 
 // update cookie
-setcookie( $mydirname . '_postorder', (int) $_GET['postorder'], time() + 86400 * 30, $xoops_cookie_path );
+setcookie( $mydirname . '_postorder', (int) $_GET['postorder'], ['expires' => time() + 86400 * 30, 'path' => $xoops_cookie_path] );
 
 $allowed_identifiers = [ 'post_id', 'topic_id', 'forum_id' ];
 

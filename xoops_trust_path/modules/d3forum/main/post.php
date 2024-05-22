@@ -3,11 +3,11 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -164,21 +164,21 @@ $requests_text = [ 'subject', 'message', 'guest_name', 'guest_email', 'guest_url
 
 // 0/1 flags
 foreach ( $requests_01 as $key ) {
-	$$key = empty( $_POST[ $key ] ) ? 0 : 1;
+	${$key} = empty( $_POST[ $key ] ) ? 0 : 1;
 }
 // integer
 foreach ( $requests_int as $key ) {
-	$$key = (int) @$_POST[ $key ];
+	${$key} = (int) @$_POST[ $key ];
 }
 // text
 foreach ( $requests_text as $key ) {
-	$$key = $myts->stripSlashesGPC( @$_POST[ $key ] );
+	${$key} = $myts->stripSlashesGPC( @$_POST[ $key ] );
 }
 
 // Validations after FETCH
 $subject = '' == trim( $subject ) ? _NOTITLE : $subject;
 
-if ( $icon < 0 || $icon >= count( $d3forum_icon_meanings ) ) {
+if ( $icon < 0 || $icon >= (is_countable($d3forum_icon_meanings) ? count( $d3forum_icon_meanings ) : 0) ) {
 	$icon = 0;
 }
 if ( empty( $xoopsModuleConfig['allow_html'] ) ) {
@@ -289,10 +289,10 @@ if ( ! empty( $_POST['contents_preview'] ) ) {
 	$set4sql = "modified_time=UNIX_TIMESTAMP(), modifier_ip='" . addslashes( @$_SERVER['REMOTE_ADDR'] ) . "'";
 
 	foreach ( $requests_01 as $key ) {
-		$set4sql .= ",$key='" . $$key . "'";
+		$set4sql .= ",$key='" . ${$key} . "'";
 	}
 	foreach ( $requests_int as $key ) {
-		$set4sql .= ",$key='" . $$key . "'";
+		$set4sql .= ",$key='" . ${$key} . "'";
 	}
 	/*foreach( $requests_text as $key ) {
 		$set4sql .= ",$key='".addslashes($$key)."'" ;
@@ -324,7 +324,7 @@ if ( ! empty( $_POST['contents_preview'] ) ) {
 		$guest_url = preg_match( '#^https?\://#', $guest_url ) ? $guest_url : '';
 
 		foreach ( [ 'guest_name', 'guest_email', 'guest_url', 'guest_trip' ] as $key ) {
-			$set4sql .= ",$key='" . addslashes( $$key ) . "'";
+			$set4sql .= ",$key='" . addslashes( ${$key} ) . "'";
 		}
 		if ( ! empty( $guest_pass ) ) {
 			$set4sql .= ",guest_pass_md5='" . md5( $guest_pass . 'd3forum' ) . "'";
@@ -566,27 +566,27 @@ if ( ! empty( $_POST['contents_preview'] ) ) {
 	if ( '{XOOPS_URL}' == substr( $forum_row['forum_external_link_format'], 0, 11 ) && ! empty( $external_link_id ) ) {
 
 		// return to comment target (conventional module)
-		redirect_header( sprintf( str_replace( '{XOOPS_URL}', XOOPS_URL, $forum_row['forum_external_link_format'] ), $external_link_id ), 2, $redirect_message );
+		redirect_header( sprintf( str_replace( '{XOOPS_URL}', XOOPS_URL, $forum_row['forum_external_link_format'] ), $external_link_id ), 1, $redirect_message );
 
 	} else if ( is_object( @$d3com ) && ! empty( $external_link_id ) && is_array( $summary = $d3com->fetchSummary( $external_link_id ) ) ) {
 
 		// return to comment target (d3comment native module)
-		redirect_header( @$summary['uri'], 2, $redirect_message );
+		redirect_header( @$summary['uri'], 1, $redirect_message );
 
 	} else if ( ! empty( $topic_invisible ) ) {
 
 		// redirect the forum for invisible topic
-		redirect_header( XOOPS_URL . "/modules/$mydirname/index.php?forum_id=$forum_id", 2, _MD_D3FORUM_MSG_THANKSPOSTNEEDAPPROVAL );
+		redirect_header( XOOPS_URL . "/modules/$mydirname/index.php?forum_id=$forum_id", 1, _MD_D3FORUM_MSG_THANKSPOSTNEEDAPPROVAL );
 
 	} else if ( ! empty( $mode_sametopic ) ) {
 
 		// display the topic
-		redirect_header( XOOPS_URL . "/modules/$mydirname/index.php?topic_id=$topic_id#post_id$post_id", 2, $redirect_message );
+		redirect_header( XOOPS_URL . "/modules/$mydirname/index.php?topic_id=$topic_id#post_id$post_id", 1, $redirect_message );
 
 	} else {
 
 		// display the post
-		redirect_header( XOOPS_URL . "/modules/$mydirname/index.php?post_id=$post_id", 2, $redirect_message );
+		redirect_header( XOOPS_URL . "/modules/$mydirname/index.php?post_id=$post_id", 1, $redirect_message );
 
 	}
 	exit;

@@ -2,11 +2,11 @@
 /**
  * mymenu for D3 modules always require altsys
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Author
+ * @copyright  (c) 2005-2024 Author
  * @license    GPL v2.0
  */
 
@@ -46,7 +46,7 @@ if ( file_exists( XOOPS_TRUST_PATH . '/libs/altsys/myblocksadmin.php' ) ) {
 
 // Preferences
 $config_handler = xoops_gethandler( 'config' );
-if ( count( $config_handler->getConfigs( new Criteria( 'conf_modid', $xoopsModule->mid() ) ) ) > 0 ) {
+if ( (is_countable($config_handler->getConfigs( new Criteria( 'conf_modid', $xoopsModule->mid() ) )) ? count( $config_handler->getConfigs( new Criteria( 'conf_modid', $xoopsModule->mid() ) ) ) : 0) > 0 ) {
 	$adminmenu[] = [
 		'title' => _PREFERENCES,
 		'link'  => XOOPS_URL . '/modules/legacy/admin/index.php?action=PreferenceEdit&confmod_id=' . $xoopsModule->mid()
@@ -72,7 +72,7 @@ foreach ( array_keys( $adminmenu ) as $i ) {
 }
 if ( empty( $adminmenu_hilighted ) ) {
 	foreach ( array_keys( $adminmenu ) as $i ) {
-		if ( stripos( $mymenu_uri, $adminmenu[ $i ]['link'] ) !== false ) {
+		if ( stripos( $mymenu_uri, (string) $adminmenu[ $i ]['link'] ) !== false ) {
 			$adminmenu[ $i ]['selected']     = true;
 			$GLOBALS['altsysAdminPageTitle'] = $adminmenu[ $i ]['title'];
 			break;
@@ -82,7 +82,7 @@ if ( empty( $adminmenu_hilighted ) ) {
 
 // link conversion from relative to absolute
 foreach ( array_keys( $adminmenu ) as $i ) {
-	if ( stripos( $adminmenu[ $i ]['link'], XOOPS_URL ) === false ) {
+	if ( stripos( $adminmenu[ $i ]['link'], (string) XOOPS_URL ) === false ) {
 		$adminmenu[ $i ]['link'] = XOOPS_URL . "/modules/$mydirname/" . $adminmenu[ $i ]['link'];
 	}
 }

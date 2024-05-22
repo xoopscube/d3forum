@@ -3,10 +3,10 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -66,7 +66,7 @@ if ( $isadminormod ) {
 	// self delete
 	if ( time() < $post_row['post_time'] + (int) $xoopsModuleConfig['selfdellimit'] ) {
 		// before time limit
-		if ( count( $children ) > 0 ) {
+		if ( (is_countable($children) ? count( $children ) : 0) > 0 ) {
 			// child(ren) exist(s)
 			redirect_header( XOOPS_URL . "/modules/$mydirname/index.php?post_id=$post_id", 2, _MD_D3FORUM_DELCHILDEXISTS );
 			exit;
@@ -152,7 +152,7 @@ $xoopsTpl->assign( [
 		'reference_name'           => @$reference_name4html,
 		'reference_time'           => @$reference_time,
 		'reference_time_formatted' => formatTimestamp( @$reference_time, 'm' ),
-		'children_count'           => count( $children ),
+		'children_count'           => is_countable($children) ? count( $children ) : 0,
 		'category'                 => $category4assign,
 		'forum'                    => $forum4assign,
 		'topic'                    => $topic4assign,

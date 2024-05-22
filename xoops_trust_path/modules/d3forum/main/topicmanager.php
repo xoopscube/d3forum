@@ -3,11 +3,11 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -90,11 +90,11 @@ if ( ! empty( $_POST['topicman_sync'] ) ) {
 	// sync posts from post_votes
 	$prs = $db->query( 'SELECT post_id FROM ' . $db->prefix( $mydirname . '_posts' ) . " WHERE topic_id=$topic_id" );
 
-	while ( list( $post_id ) = $db->fetchRow( $prs ) ) {
+	while ( [$post_id] = $db->fetchRow( $prs ) ) {
 		d3forum_sync_post_votes( $mydirname, $post_id, false );
 	}
 
-	d3forum_sync_topic_votes( $mydirname, $topic_id, false );
+	d3forum_sync_topic_votes( $mydirname, $topic_id );
 
 	d3forum_sync_topic( $mydirname, $topic_id, false );
 

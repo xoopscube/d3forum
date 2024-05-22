@@ -3,11 +3,11 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -148,7 +148,7 @@ $xoopsOption['template_main'] = $mydirname . '_main_listforums.html';
 
 include XOOPS_ROOT_PATH . '/header.php';
 
-unset( $xoops_breadcrumbs[ count( $xoops_breadcrumbs ) - 1 ]['url'] );
+unset( $xoops_breadcrumbs[ (is_countable($xoops_breadcrumbs) ? count( $xoops_breadcrumbs ) : 0) - 1 ]['url'] );
 
 $xoopsTpl->assign(
 	[

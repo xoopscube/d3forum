@@ -2,11 +2,11 @@
 /**
  * D3Forum module for XCL
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -35,7 +35,7 @@ if ( empty( $cat_id ) ) {
 
 	if ( empty( $cat_id ) ) {
 
-		redirect_header( XOOPS_URL . "/modules/$mydirname/index.php?page=makecategory", 5, _MD_A_D3FORUM_ERR_CREATECATEGORYFIRST );
+		redirect_header( XOOPS_URL . "/modules/$mydirname/index.php?page=makecategory", 2, _MD_A_D3FORUM_ERR_CREATECATEGORYFIRST );
 		exit;
 	}
 
@@ -51,14 +51,14 @@ if ( empty( $cat_id ) ) {
 if ( ! empty( $_POST['group_update'] ) && empty( $invaild_cat_id ) ) {
 
 	if ( ! $xoopsGTicket->check( true, 'd3forum_admin' ) ) {
-		redirect_header( XOOPS_URL . '/', 3, $xoopsGTicket->getErrors() );
+		redirect_header( XOOPS_URL . '/', 2, $xoopsGTicket->getErrors() );
 	}
 
 	$db->query( 'DELETE FROM ' . $db->prefix( $mydirname . '_category_access' ) . " WHERE cat_id=$cat_id AND groupid>0" );
 
 	$result = $db->query( 'SELECT groupid FROM ' . $db->prefix( 'groups' ) );
 
-	while ( list( $gid ) = $db->fetchRow( $result ) ) {
+	while ( [$gid] = $db->fetchRow( $result ) ) {
 		if ( ! empty( $_POST['can_reads'][ $gid ] ) ) {
 			$can_post           = empty( $_POST['can_posts'][ $gid ] ) ? 0 : 1;
 			$can_edit           = empty( $_POST['can_edits'][ $gid ] ) ? 0 : 1;
@@ -70,7 +70,7 @@ if ( ! empty( $_POST['group_update'] ) && empty( $invaild_cat_id ) ) {
 			$db->query( 'INSERT INTO ' . $db->prefix( $mydirname . '_category_access' ) . " SET cat_id=$cat_id, groupid=$gid, can_post=$can_post, can_edit=$can_edit, can_delete=$can_delete, post_auto_approved=$post_auto_approved, is_moderator=$is_moderator, can_makeforum=$can_makeforum" );
 		}
 	}
-	redirect_header( XOOPS_URL . "/modules/$mydirname/admin/index.php?page=category_access&amp;cat_id=$cat_id", 3, _MD_D3FORUM_MSG_UPDATED );
+	redirect_header( XOOPS_URL . "/modules/$mydirname/admin/index.php?page=category_access&amp;cat_id=$cat_id", 2, _MD_D3FORUM_MSG_UPDATED );
 	exit;
 }
 
@@ -129,7 +129,7 @@ if ( ! empty( $_POST['user_update'] ) && empty( $invaild_cat_id ) ) {
 		}
 	}
 
-	redirect_header( XOOPS_URL . "/modules/$mydirname/admin/index.php?page=category_access&amp;cat_id=$cat_id", 3, _MD_D3FORUM_MSG_UPDATED );
+	redirect_header( XOOPS_URL . "/modules/$mydirname/admin/index.php?page=category_access&amp;cat_id=$cat_id", 2, _MD_D3FORUM_MSG_UPDATED );
 	exit;
 }
 
@@ -143,7 +143,7 @@ $crs = $db->query( 'SELECT cat_id,cat_title,cat_depth_in_tree FROM ' . $db->pref
 
 $cat_options = [];
 
-while ( list( $id, $title, $depth ) = $db->fetchRow( $crs ) ) {
+while ( [$id, $title, $depth] = $db->fetchRow( $crs ) ) {
 	$cat_options[ $id ] = str_repeat( '--', $depth ) . htmlspecialchars( $title, ENT_QUOTES );
 }
 
@@ -206,7 +206,7 @@ $fars = $db->query( 'SELECT u.uid,u.uname,fa.can_post,fa.can_edit,fa.can_delete,
 
 $user_trs = '';
 
-while ( list( $uid, $uname, $can_post, $can_edit, $can_delete, $post_auto_approved, $is_moderator, $can_makeforum ) = $db->fetchRow( $fars ) ) {
+while ( [$uid, $uname, $can_post, $can_edit, $can_delete, $post_auto_approved, $is_moderator, $can_makeforum] = $db->fetchRow( $fars ) ) {
 
 	$uid = (int) $uid;
 

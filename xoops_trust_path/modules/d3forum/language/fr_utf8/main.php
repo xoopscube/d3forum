@@ -101,7 +101,7 @@ Define( '_MD_D3FORUM_A_BOTTOMOFTHETOPIC' , 'Derniers messages');
 // comment integration
 Define( '_MD_D3FORUM_POSTASCOMMENTTOP' , 'Poster un nouveau commentaire');
 Define( '_MD_D3FORUM_LINK_COMMENTSOURCE' , 'cible de ce commentaire');
-Define( '_MD_D3FORUM_LINK_RICHERCOMMENTFORM' , 'Afficher éditeur texte - Démarrer un nouveau Sujet');
+Define( '_MD_D3FORUM_LINK_RICHERCOMMENTFORM' , 'Utiliser éditeur de texte');
 Define( '_MD_D3FORUM_LINK_LISTALLCOMMENTS' , 'Voir tous les commentaires...');
 Define( '_MD_D3FORUM_FMT_COMMENTSUBJECT' , 'Re: %s');
 Define( '_MD_D3FORUM_COMMENTSLIST' , 'Liste commentaires');
@@ -313,7 +313,7 @@ Define( '_MD_D3FORUM_BTN_COPYFORUMTOOTHERFORUM' , 'Copier ce Forum dans l\'autre
 // makecategory and categorymanager
 Define( '_MD_D3FORUM_CATEGORYMANAGER' , 'Gestion de Catégories');
 Define( '_MD_D3FORUM_LINK_MAKECATEGORY' , 'Créer une Catégorie');
-Define( '_MD_D3FORUM_LINK_MAKESUBCATEGORY' , 'Créer une Sub-Catégorie');
+Define( '_MD_D3FORUM_LINK_MAKESUBCATEGORY' , 'Créer une sous-catégorie');
 Define( '_MD_D3FORUM_LINK_CATEGORYMANAGER' , 'Modifier une Catégorie');
 Define( '_MD_D3FORUM_MSG_CATEGORYMADE' , 'La Catégorie a été créée avec succès');
 Define( '_MD_D3FORUM_MSG_CATEGORYUPDATED' , 'La Catégorie a été modifiée avec succès');

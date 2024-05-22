@@ -3,10 +3,10 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -20,7 +20,9 @@ if ( ! $trs = $db->query( $sql ) ) {
 }
 
 if ( $db->getRowsNum( $trs ) <= 0 ) {
-	die( _MD_D3FORUM_ERR_READTOPIC );
+	redirect_header( XOOPS_URL . "/modules/$mydirname/index.php", 2, _MD_D3FORUM_ERR_READTOPIC );
+	exit;
+
 }
 
 $topic_row = $db->fetchArray( $trs );
@@ -61,7 +63,8 @@ if ( $isadminormod ) {
 	$whr_topic_invisible = '1';
 } else {
 	if ( $topic_row['topic_invisible'] ) {
-		die( _MD_D3FORUM_ERR_READTOPIC );
+		redirect_header( XOOPS_URL . "/modules/$mydirname/index.php", 2, _MD_D3FORUM_ERR_READTOPIC );
+		exit;
 	}
 	$whr_topic_invisible = '! topic_invisible';
 }

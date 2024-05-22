@@ -3,16 +3,17 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
 include dirname( __DIR__ ) . '/include/common_prepend.php';
 
 require_once dirname( __DIR__ ) . '/class/gtickets.php';
+
 
 $cat_id = (int) @$_GET['cat_id'];
 
@@ -53,7 +54,7 @@ if ( isset( $_POST['categoryman_post'] ) ) {
 	exit;
 }
 
-if ( isset( $_POST['categoryman_delete'] ) && 0 === count( $children ) ) {
+if ( isset( $_POST['categoryman_delete'] ) && 0 === (is_countable($children) ? count( $children ) : 0) ) {
 
 	if ( ! $xoopsGTicket->check( true, 'd3forum' ) ) {
 		redirect_header( XOOPS_URL . '/', 3, $xoopsGTicket->getErrors() );
@@ -105,7 +106,7 @@ $xoopsTpl->assign( [
 		'category'            => $category4assign,
 		'page'                => 'categorymanager',
 		'formtitle'           => _MD_D3FORUM_LINK_CATEGORYMANAGER,
-		'children_count'      => count( $children ),
+		'children_count'      => is_countable($children) ? count( $children ) : 0,
 		'cat_jumpbox_options' => d3forum_make_cat_jumpbox_options( $mydirname, $whr_read4cat, $cat_row['pid'] ),
 		'gticket_hidden'      => $xoopsGTicket->getTicketHtml( __LINE__, 1800, 'd3forum' ),
 		'xoops_module_header' => '<link rel="stylesheet" type="text/css" media="all" href="' . str_replace( '{mod_url}', XOOPS_URL . '/modules/' . $mydirname, $xoopsModuleConfig['css_uri'] ) . '">' . $xoopsTpl->get_template_vars( 'xoops_module_header' ),

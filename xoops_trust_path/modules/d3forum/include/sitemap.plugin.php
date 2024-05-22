@@ -3,16 +3,17 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL_V2
  */
 
 function b_sitemap_d3forum( $mydirname ) {
-	$db = XoopsDatabaseFactory::getDatabaseConnection();
+	$myts = null;
+ $db = XoopsDatabaseFactory::getDatabaseConnection();
 
 	( method_exists( 'MyTextSanitizer', 'sGetInstance' ) and $myts = MyTextSanitizer::sGetInstance() ) || $myts = ( new MyTextSanitizer )->getInstance();
 	$ret = [];
@@ -25,7 +26,7 @@ function b_sitemap_d3forum( $mydirname ) {
 
 	$result = $db->query( $sql );
 
-	while ( list( $forum_id, $forum_title ) = $db->fetchRow( $result ) ) {
+	while ( [$forum_id, $forum_title] = $db->fetchRow( $result ) ) {
 		$ret['parent'][] = [
 			'id'    => (int) $forum_id,
 			'title' => $myts->makeTboxData4Show( $forum_title ),

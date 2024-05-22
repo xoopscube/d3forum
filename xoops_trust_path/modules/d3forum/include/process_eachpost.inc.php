@@ -3,11 +3,11 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -129,7 +129,7 @@ if ( ! empty( $forum_row['forum_external_link_format'] ) ) {
 }
 
 // d3comment overridings
-if ( is_object( $d3com ) ) {
+if ( is_object( $d3com ) && (isset($topic_row['topic_external_link_id']) && ($forum_row['forum_external_link_format']!==null)) ) {
 	$can_vote     = $d3com->canVote( $topic_row['topic_external_link_id'], $can_vote, $post_row['post_id'] );
 	$can_post     = $d3com->canPost( $topic_row['topic_external_link_id'], $can_post );
 	$can_reply    = $d3com->canReply( $topic_row['topic_external_link_id'], $can_reply, $post_row['post_id'] );

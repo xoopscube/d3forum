@@ -3,11 +3,11 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -21,7 +21,8 @@ if ( ! function_exists( 'd3forum_global_search_base' ) ) {
 	function d3forum_global_search_base( $mydirname, $keywords, $andor, $limit, $offset, $userid ) {
 
 
-		( method_exists( 'MyTextSanitizer', 'sGetInstance' ) and $myts = MyTextSanitizer::sGetInstance() ) || $myts = MyTextsanitizer::getInstance();
+		$myts = null;
+  ( method_exists( 'MyTextSanitizer', 'sGetInstance' ) and $myts = MyTextSanitizer::sGetInstance() ) || $myts = MyTextsanitizer::getInstance();
 
 		$db = XoopsDatabaseFactory::getDatabaseConnection();
 
@@ -105,7 +106,7 @@ if ( ! function_exists( 'd3forum_global_search_base' ) ) {
 		// nao-pon
 		$make_context_func = function_exists( 'xoops_make_context' ) ? 'xoops_make_context' : ( function_exists( 'search_make_context' ) ? 'search_make_context' : '' );
 
-		while ( list( $post_id, $topic_id, $post_time, $uid, $subject, $html, $smiley, $xcode, $br, $text, $external_link_id, $forum_id ) = $db->fetchRow( $result ) ) {
+		while ( [$post_id, $topic_id, $post_time, $uid, $subject, $html, $smiley, $xcode, $br, $text, $external_link_id, $forum_id] = $db->fetchRow( $result ) ) {
 
 			// naao from
 			$can_display = true;    //default
