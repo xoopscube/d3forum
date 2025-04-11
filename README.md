@@ -22,7 +22,6 @@ Author       | Gijoe (peak.ne.jp) and Jidaikbo
 Copyright    | 2005-2024 Authors
 License      | XCL module distributed under a GPL 2.0 License.
 
-
 ##### :computer: The Minimum Requirements
 
 
@@ -99,6 +98,7 @@ D3Forum is particularly valuable because it serves dual purposes - it can be a c
 
 The notification system in XOOPSCube allows users to subscribe to various events within modules and receive notifications when those events occur.
 
+![D3Forum Notification](https://github.com/xoopscube/artwork-social-media/blob/bb0d45b8cfcb7d5da8aaf821747aa12150bc1897/modules/d3-forum-notification.jpg)
 
 ## Key Components of the Notification System
 
