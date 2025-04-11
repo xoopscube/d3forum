@@ -8,7 +8,7 @@
 
 ## ///// — D3Forum :: Discussion Forum Management
 
-![alt text](https://repository-images.githubusercontent.com/469831419/6032bf18-5c1e-4f27-aa2f-2b8e60f4e5)
+![D3Forum Admin Permissions](https://repository-images.githubusercontent.com/469757355/627e9055-1594-4290-9e05-b39273037f79)
 
 MODULE |  D3FORUM
 ------------ | -------------
