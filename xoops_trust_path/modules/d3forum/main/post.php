@@ -3,11 +3,11 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.4.0
+ * @version    XCL 2.5.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2024 Authors
+ * @copyright  (c) 2005-2025 Authors
  * @license    GPL v2.0
  */
 
@@ -411,7 +411,7 @@ if ( ! empty( $_POST['contents_preview'] ) ) {
 		}
 
 		// create topic and get a new topic_id
-		if ( ! $db->query( 'INSERT INTO ' . $db->prefix( $mydirname . '_topics' ) . " SET forum_id=$forum_id,topic_invisible=$topic_invisible,topic_external_link_id='" . addslashes( @$external_link_id ) . "'" ) ) {
+		if ( ! $db->query( 'INSERT INTO ' . $db->prefix( $mydirname . '_topics' ) . " SET forum_id=$forum_id,topic_invisible=$topic_invisible,topic_external_link_id='" . addslashes( isset($external_link_id) ? $external_link_id : '' ) . "'" ) ) {
 			die( 'DB ERROR IN INSERT topic' );
 		}
 
@@ -484,6 +484,7 @@ if ( ! empty( $_POST['contents_preview'] ) ) {
 
 	if ( ! empty( $need_notify ) ) {
 		// naao added Nov.2012 for check auth for parent entry
+		// ref. /d3forum/class/D3commentAbstract.class.php
 		if ( is_object( $d3com ) && method_exists( $d3com, 'validate_users2notify' ) ) {
 			if ( $external_link_id === $d3com->validate_id( $external_link_id ) ) {
 				$users2notify = $d3com->validate_users2notify( $external_link_id, $users2notify );

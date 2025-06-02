@@ -3,11 +3,11 @@
  * D3Forum module for XCL
  *
  * @package    D3Forum
- * @version    XCL 2.4.0
+ * @version    XCL 2.5.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2024 Authors
+ * @copyright  (c) 2005-2025 Authors
  * @license    GPL v2.0
  */
 
@@ -131,7 +131,7 @@ while ( $forum_row = $db->fetchArray( $frs ) ) {
 		'last_post_subject'        => $myts->makeTboxData4Show( $forum_row['subject'] ),
 		'last_post_uid'            => (int) $forum_row['uid'],
 		'last_post_uname'          => htmlspecialchars( $last_post_uname ),
-		'last_post_gname'          => htmlspecialchars( $forum_row['guest_name'] ),
+		'last_post_gname'          => htmlspecialchars( $forum_row['guest_name'] ?? '' ),
 		'moderate_groups'          => d3forum_get_forum_moderate_groups4show( $mydirname, $forum_row['forum_id'] ),
 		'moderate_users'           => d3forum_get_forum_moderate_users4show( $mydirname, $forum_row['forum_id'] ),
 		'can_post'                 => (boolean) $forum_permissions[ $forum_row['forum_id'] ]['can_post'],

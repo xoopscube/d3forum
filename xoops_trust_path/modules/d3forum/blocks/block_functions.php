@@ -2,12 +2,12 @@
 /**
  * D3Forum module for XCL
  * @package    D3Forum
- * @version    XCL 2.4.0
+ * @version    XCL 2.5.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Naoki Sawada (aka Nao-pon)
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2024 Authors
+ * @copyright  (c) 2005-2025 Authors
  * @license    GPL v2.0
  */
 

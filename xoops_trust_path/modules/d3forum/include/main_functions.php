@@ -3,11 +3,11 @@
  * D3Forum module for XCL
  * This file can be included only from main or admin (not from blocks)
  * @package    D3Forum
- * @version    XCL 2.4.0
+ * @version    XCL 2.5.0
  * @author     Nobuhiro YASUTOMI, PHP8
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2024 Authors
+ * @copyright  (c) 2005-2025 Authors
  * @license    GPL v2.0
  * @brief      add fields for tree structure into $posts or $categories
  */
@@ -371,11 +371,12 @@ function d3forum_get_comment_link( $external_link_format, $external_link_id ) {
 // started from class:: for native d3comment modules
 function d3forum_get_comment_description( $mydirname, $external_link_format, $external_link_id, $forum_id = null ) {
 	$d3com = d3forum_main_get_comment_object( $mydirname, $external_link_format, $forum_id );
+
 	if ( ! is_object( $d3com ) ) {
 		return '';
 	}
 
-	$description = $d3com->fetchDescription( $external_link_id );
+	$description = method_exists($d3com, 'fetchDescription') ? $d3com->fetchDescription($external_link_id) : '';
 
 	if ( $description ) {
 		return $description;

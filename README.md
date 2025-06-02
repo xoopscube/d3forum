@@ -14,12 +14,12 @@ MODULE |  D3FORUM
 ------------ | -------------
 Description  | Duplicatable module for discussion forum management
 Render Engine| Smarty v2 and XCube Layout
-Version | 2.40.0
+Version | 2.50.0
 Author | Nobuhiro Yasutomi @nbuy XCL PHP8  
 Author | Nuno Luciano @gigamaster XCL PHP7 
 Author      | @domifara, @naao Naoki Okino, @nao-pon Naoki Sawada
 Author       | Gijoe (peak.ne.jp) and Jidaikbo 
-Copyright    | 2005-2024 Authors
+Copyright    | 2005-2025 Authors
 License      | XCL module distributed under a GPL 2.0 License.
 
 
@@ -28,8 +28,8 @@ License      | XCL module distributed under a GPL 2.0 License.
 
 
           Apache, Nginx, etc. PHP 8.x.x
-          MySQL ^5.7, MariaDB  InnoDB utf8 / utf8mb4
-          XCL version 2.4.0
+          MySQL ^8.0, MariaDB  InnoDB utf8 / utf8mb4
+          XCL version 2.5.0
 
 
 

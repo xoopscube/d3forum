@@ -2,10 +2,10 @@
 /**
  * D3Forum module for XCL
  * @package    D3Forum
- * @version    XCL 2.4.0
+ * @version    XCL 2.5.0
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2024 Authors
+ * @copyright  (c) 2005-2025 Authors
  * @license    GPL v2.0
  */
 
@@ -29,9 +29,10 @@ class D3forumTextSanitizer extends MyTextSanitizer {
 	}
 
 	// override
-	// a fix to the original implementation
+	// Fix to the original implementation
 	public function &htmlSpecialChars( $text, $forEdit = false ) {
-		$ret = htmlspecialchars( $text, ENT_QUOTES );
+		// Fix for PHP 8.1+ - prevent passing null to htmlspecialchars
+		$ret = htmlspecialchars( $text ?? '', ENT_QUOTES );
 
 		return $ret;
 	}
